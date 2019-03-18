@@ -1,0 +1,23 @@
+<div class="col-md-12 container">
+  <h2>Recepten Overzicht</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Naam</th>
+        <th>Recepttype</th>
+        <th>Voorbereidingstijd</th>
+        <th>Bereidingstijd</th>
+        <th>Waardering</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let recipe of recipes">
+        <td>{{recipe.name}}</td>
+        <td>{{recipe.recipeType}}</td>
+        <td>{{recipe.preparationTime}}</td>
+        <td>{{recipe.cookTime}}</td>
+        <td>{{recipe.rating}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

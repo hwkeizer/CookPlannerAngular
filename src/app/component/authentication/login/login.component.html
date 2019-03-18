@@ -1,0 +1,23 @@
+<div class="col-md-6 container mt-3">
+  <h2>Inloggen</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <div class="form-group">
+      <label for="username">Gebruikersnaam:</label>
+      <input type="text" class="form-control" formControlName="username" autocomplete="off">
+      <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger mt-1">
+        <div *ngIf="username.errors.required">Gebruikersnaam is vereist...</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Wachtwoord:</label>
+      <input type="password" class="form-control" formControlName="password" autocomplete="off">
+      <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger mt-1">
+        <div *ngIf="password.errors.required">Wachtwoord is vereist...</div>
+      </div>
+    </div>
+    <button class="btn btn-success" [disabled]="loginForm.invalid">Inloggen</button>
+    <div *ngIf="invalidLogin" class="error">
+      <div>Onjuiste inlog gegevens</div>
+    </div>    
+  </form>
+</div>

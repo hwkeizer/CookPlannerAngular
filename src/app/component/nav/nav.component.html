@@ -1,0 +1,28 @@
+<nav class="navbar  navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" routerLink="home">Kookwijzer | </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav mr-auto">
+      <a class="nav-item nav-link active" routerLink="home">Home</a><span class="sr-only">(current)</span>
+      <a class="nav-item nav-link" routerLink="/recipe-list">Recepten</a>
+      <a class="nav-item nav-link" routerLink="/settings">Instellingen</a>
+    </div>
+    <div class="navbar-nav" *ngIf="!loggedInAccount">      
+        <a class="nav-item nav-link" routerLink="login">login</a>      
+    </div>
+  </div>
+
+    <div class="row" *ngIf="loggedInAccount">
+      <div class="col">
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-outline-primary" id="dropdownProfile" ngbDropdownToggle>{{loggedInAccount.username}}</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownProfile">
+            <button ngbDropdownItem >Persoonlijke instellingen</button>
+            <button ngbDropdownItem routerLink="logout">Uitloggen</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</nav>
