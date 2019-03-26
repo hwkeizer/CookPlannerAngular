@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthenticationService } from 'src/app/service/authentication/authentication.service';
+import { Account } from 'src/app/model/Account';
+import { JwtAuthResponse } from 'src/app/model/JwtAuthResponse';
 
 @Component({
   selector: 'app-nav',
@@ -8,7 +10,7 @@ import { AuthenticationService } from 'src/app/service/authentication/authentica
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit, OnDestroy {
-  loggedInAccount: Account;
+  loggedInAccount: JwtAuthResponse;
   loggedInAccountSubscription: Subscription;
 
   constructor(private authenticationService: AuthenticationService) {

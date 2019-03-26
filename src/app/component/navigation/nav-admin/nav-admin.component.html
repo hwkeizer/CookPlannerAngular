@@ -1,0 +1,14 @@
+<div *ngIf="loggedInAccount.role === 'ADMIN'">
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #b3ecff;">
+    <a class="navbar-brand" routerLink="home">Admin menu | </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav mr-auto">
+        <a class="nav-item nav-link" routerLink="/account-list">Accounts</a>
+      </div>
+    </div>
+  </nav>
+</div>

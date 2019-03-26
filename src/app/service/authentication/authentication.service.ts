@@ -3,22 +3,24 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
+import { Account } from 'src/app/model/Account';
+import { JwtAuthResponse } from 'src/app/model/JwtAuthResponse';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private loggedInAccountSubject: BehaviorSubject<Account>;
-  public loggedInAccount: Observable<Account>;
+  private loggedInAccountSubject: BehaviorSubject<JwtAuthResponse>;
+  public loggedInAccount: Observable<JwtAuthResponse>;
 
   constructor(private http: HttpClient) {
-    this.loggedInAccountSubject = new BehaviorSubject<Account>(JSON.parse(window.localStorage.getItem('loggedInAccount')));
+    this.loggedInAccountSubject = new BehaviorSubject<JwtAuthResponse>(JSON.parse(window.localStorage.getItem('loggedInAccount')));
     this.loggedInAccount = this.loggedInAccountSubject.asObservable();
    }
 
    baseUrl: string = environment.serverUrl;
 
-   login(loginPayload): Observable<any> {
+   login(loginPayload) {
      return this.http.post<any>(this.baseUrl + 'login', loginPayload)
       .pipe(map(
         data => {
@@ -37,6 +39,14 @@ export class AuthenticationService {
    }
 
    register(registrationPayload): Observable<any> {
-     return this.http.post<any>(this.baseUrl + 'register', registrationPayload);
+     return this.http.post<any>(this.baseUrl + 'account/register', registrationPayload);
+   }
+
+   getAccountList() {
+     return this.http.get<any>(this.baseUrl + 'account/list');
+   }
+
+   deleteAccount(account: Account) {
+     return this.http.post<any>(this.baseUrl + 'account/delete', account);
    }
 }
