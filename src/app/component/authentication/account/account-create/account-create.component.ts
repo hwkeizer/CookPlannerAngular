@@ -12,7 +12,9 @@ import { AuthenticationService } from 'src/app/service/authentication/authentica
 export class AccountCreateComponent implements OnInit {
 
   createForm: FormGroup;
+  submitted = false;
   account: Account;
+  accountTypes: string[];
 
   constructor(
     private router: Router,
@@ -20,6 +22,7 @@ export class AccountCreateComponent implements OnInit {
     private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
+    this.accountTypes = this.authenticationService.getAccountTypes();
     this.createForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
@@ -28,6 +31,11 @@ export class AccountCreateComponent implements OnInit {
   }
 
   onSubmit() {
+    this.submitted = true;
+    if (this.createForm.invalid) {
+      return;
+    }
+    
     this.account = this.createForm.value;
     this.authenticationService.register(this.account).subscribe(
       data => {

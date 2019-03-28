@@ -53,4 +53,9 @@ export class AuthenticationService {
    updateAccount(account: Account) {
      return this.http.put<any>(this.baseUrl + 'account/update', account);
    }
+
+   // For now hardcoded, should be DB call when this changes regularly
+   getAccountTypes(): string[] {
+     return ["ADMIN", "USER"];
+   }
 }

@@ -13,7 +13,9 @@ import { routerNgProbeToken } from '@angular/router/src/router_module';
 export class AccountEditComponent implements OnInit {
 
   editForm: FormGroup;
+  submitted = false;
   account: Account;
+  accountTypes: string[];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -21,6 +23,7 @@ export class AccountEditComponent implements OnInit {
     private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
+    this.accountTypes = this.authenticationService.getAccountTypes();
     this.account = JSON.parse(window.sessionStorage.getItem("editAccount"));
     if (!this.account) {
       alert("Invalid action")
@@ -35,6 +38,11 @@ export class AccountEditComponent implements OnInit {
   }
 
   onEdit() {
+    this.submitted = true;
+    if (this.editForm.invalid) {
+      return;
+    }
+
     this.account.username = this.editForm.get('username').value;
     this.account.role = this.editForm.get('role').value;
     this.authenticationService.updateAccount(this.account).subscribe(

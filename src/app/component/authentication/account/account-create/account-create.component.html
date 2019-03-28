@@ -6,7 +6,7 @@
       <div class="form-group col-md-5 required">
         <label for="username">Gebruikersnaam:</label>
         <input type="text" class="form-control" formControlName="username" autocomplete="off">
-        <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger mt-1">
+        <div *ngIf="username.invalid && (username.dirty || username.touched || submitted)" class="alert alert-danger mt-1">
           <div *ngIf="username.errors.required">Gebruikersnaam is vereist...</div>
         </div>
       </div>
@@ -16,7 +16,7 @@
       <div class="form-group col-md-5 required">
         <label for="password">Wachtwoord:</label>
         <input type="password" class="form-control" formControlName="password" autocomplete="off">
-        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger mt-1">
+        <div *ngIf="password.invalid && (password.dirty || password.touched || submitted)" class="alert alert-danger mt-1">
           <div *ngIf="password.errors.required">Wachtwoord is vereist...</div>
         </div>
       </div>
@@ -25,12 +25,17 @@
     <div class="form-row">
       <div class="form-group col-md-5 required">
         <label for="role">Rol:</label>
-        <input type="role" class="form-control" formControlName="role" autocomplete="off">
-        <div *ngIf="role.invalid && (role.dirty || role.touched)" class="alert alert-danger mt-1">
-          <div *ngIf="role.errors.required">Rol is vereist...</div>
+        <select class="form-control" formControlName="role">
+            <option value="" disabled="true">-- Selecteer een rol --</option>
+          <option *ngFor="let type of accountTypes" value={{type}}>{{type}}</option>
+        </select>
+        <div *ngIf="role.invalid && (role.dirty || role.touched || submitted)" class="alert alert-danger mt-1">
+            <div *ngIf="role.errors.required">Rol is vereist...</div>
         </div>
       </div>
     </div>
     <button class="btn btn-primary">Creeer account</button>
   </form>
 </div>
+
+  
