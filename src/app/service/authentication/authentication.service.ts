@@ -49,4 +49,8 @@ export class AuthenticationService {
    deleteAccount(account: Account) {
      return this.http.delete<any>(this.baseUrl + 'account/delete/' + account.id);
    }
+
+   updateAccount(account: Account) {
+     return this.http.put<any>(this.baseUrl + 'account/update', account);
+   }
 }

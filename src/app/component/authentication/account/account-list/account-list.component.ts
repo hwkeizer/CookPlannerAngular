@@ -44,4 +44,10 @@ export class AccountListComponent implements OnInit {
     )
   }
 
+  editAccount(account) {
+    window.sessionStorage.removeItem("editAccount");
+    window.sessionStorage.setItem("editAccount", JSON.stringify(account));
+    this.router.navigate(['account-edit']);
+  }
+
 }
