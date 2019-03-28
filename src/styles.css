@@ -3,3 +3,7 @@
     content: ' *';
     display: inline;
 }
+
+.clickable {
+    cursor: pointer;
+  }

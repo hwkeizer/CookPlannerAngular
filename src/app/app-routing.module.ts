@@ -10,6 +10,7 @@ import { LogoutComponent } from './component/authentication/logout/logout.compon
 import { AccountListComponent } from './component/authentication/account/account-list/account-list.component';
 import { AccountCreateComponent } from './component/authentication/account/account-create/account-create.component';
 import { AccountEditComponent } from './component/authentication/account/account-edit/account-edit.component';
+import { RecipeDetailComponent } from './component/recipe/recipe-detail/recipe-detail.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'account-create', component: AccountCreateComponent},
   {path: 'account-edit', component: AccountEditComponent},
   {path: 'recipe-list', component: RecipeListComponent},
+  {path: 'recipe-detail/:recipeId', component: RecipeDetailComponent},
   {path: 'settings', component: SettingsComponent},
 ];
 

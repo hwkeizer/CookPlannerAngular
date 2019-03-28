@@ -11,7 +11,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let recipe of recipes">
+      <tr class="clickable" *ngFor="let recipe of recipes" [routerLink]="['/recipe-detail', recipe.id]">
+        <th scope="row">{{ recipe.id }}</th>
         <td>{{recipe.name}}</td>
         <td>{{recipe.recipeType}}</td>
         <td>{{recipe.preparationTime}}</td>

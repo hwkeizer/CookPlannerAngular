@@ -16,6 +16,7 @@ import { TokenInterceptor } from './interceptor/token.interceptor';
 import { AccountCreateComponent } from './component/authentication/account/account-create/account-create.component';
 import { NavAdminComponent } from './component/navigation/nav-admin/nav-admin.component';
 import { AccountEditComponent } from './component/authentication/account/account-edit/account-edit.component';
+import { RecipeDetailComponent } from './component/recipe/recipe-detail/recipe-detail.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { AccountEditComponent } from './component/authentication/account/account
     AccountCreateComponent,
     NavAdminComponent,
     AccountEditComponent,
+    RecipeDetailComponent,
   ],
   imports: [
     BrowserModule,
