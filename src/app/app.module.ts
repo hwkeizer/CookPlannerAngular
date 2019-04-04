@@ -17,6 +17,7 @@ import { AccountCreateComponent } from './component/authentication/account/accou
 import { NavAdminComponent } from './component/navigation/nav-admin/nav-admin.component';
 import { AccountEditComponent } from './component/authentication/account/account-edit/account-edit.component';
 import { RecipeDetailComponent } from './component/recipe/recipe-detail/recipe-detail.component';
+import { NgbdSortableHeader } from './directive/sortable.directive';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { RecipeDetailComponent } from './component/recipe/recipe-detail/recipe-d
     NavAdminComponent,
     AccountEditComponent,
     RecipeDetailComponent,
+    NgbdSortableHeader
   ],
   imports: [
     BrowserModule,

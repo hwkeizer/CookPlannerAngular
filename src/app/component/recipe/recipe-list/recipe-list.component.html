@@ -1,24 +1,46 @@
 <div class="col-md-12 container">
   <h2>Recepten Overzicht</h2>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Naam</th>
-        <th>Recepttype</th>
-        <th>Voorbereidingstijd</th>
-        <th>Bereidingstijd</th>
-        <th>Waardering</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="clickable" *ngFor="let recipe of recipes" [routerLink]="['/recipe-detail', recipe.id]">
-        <th scope="row">{{ recipe.id }}</th>
-        <td>{{recipe.name}}</td>
-        <td>{{recipe.recipeType}}</td>
-        <td>{{recipe.preparationTime}}</td>
-        <td>{{recipe.cookTime}}</td>
-        <td>{{recipe.rating}}</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <form>
+    <div class="form-group form-inline">
+      Op tekst zoeken: <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="recipeTableService.searchTerm"/>
+      <span class="ml-3" *ngIf="recipeTableService.loading$ | async">Laden...</span>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th sortable="name" scope="col" (sort)="onSort($event)">Naam</th>
+          <th sortable="recipeType" scope="col" (sort)="onSort($event)">Recepttype</th>
+          <th sortable="preparationTime" scope="col" (sort)="onSort($event)">Voorbereidingstijd</th>
+          <th sortable="cookTime" scope="col" (sort)="onSort($event)">Bereidingstijd</th>
+          <th sortable="rating" scope="col" (sort)="onSort($event)">Waardering</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="clickable" *ngFor="let recipe of recipes$ | async" [routerLink]="['/recipe-detail', recipe.id]">
+          <td>{{recipe.name}}</td>
+          <td>{{recipe.recipeType}}</td>
+          <td>{{recipe.preparationTime}}</td>
+          <td>{{recipe.cookTime}}</td>
+          <td>{{recipe.rating}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="d-flex justify-content-between p-2">
+      <ngb-pagination
+        [collectionSize]="total$ | async" 
+        [(page)]="recipeTableService.page"
+        [pageSize]="recipeTableService.pageSize">
+      </ngb-pagination>
+
+      <select class="custom-select" style="width: auto" name="pageSize" [(ngModel)]="recipeTableService.pageSize">
+        <option [ngValue]="1">1 recept per pagina</option>
+        <option [ngValue]="2">2 recepten per pagina</option>
+        <option [ngValue]="4">4 recepten per pagina</option>
+        <option [ngValue]="6">6 recepten per pagina</option>
+      </select>
+    </div>
+  </form>
+
 </div>
