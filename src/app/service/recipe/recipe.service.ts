@@ -13,6 +13,6 @@ export class RecipeService {
   constructor(private http: HttpClient) { }
 
   getRecipeList() {
-    return this.http.get<Recipe[]>(this.baseUrl + 'recipe/list')
+    return this.http.get<any>(this.baseUrl + 'recipe/list')
   }
 }

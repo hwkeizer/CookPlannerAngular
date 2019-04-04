@@ -34,7 +34,7 @@ export class RecipeListComponent implements OnInit {
   ngOnInit() {
     this.recipeService.getRecipeList().subscribe(
       data => {
-        this.recipes = data;
+        this.recipes = data.result;
         // Push recipelist to the recipeTableService. Not sure if this is the right thing to do but it works...
         this.recipeTableService.recipeList = this.recipes;
       }
