@@ -17,7 +17,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="clickable" *ngFor="let recipe of recipes$ | async" [routerLink]="['/recipe-detail', recipe.id]">
+        <tr class="clickable" *ngFor="let recipe of recipes$ | async" (click)="onSelect(recipe)">
           <td>{{recipe.name}}</td>
           <td>{{recipe.recipeType}}</td>
           <td>{{recipe.preparationTime}}</td>

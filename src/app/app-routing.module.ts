@@ -21,7 +21,7 @@ const routes: Routes = [
   {path: 'account-create', component: AccountCreateComponent},
   {path: 'account-edit', component: AccountEditComponent},
   {path: 'recipe-list', component: RecipeListComponent},
-  {path: 'recipe-detail/:recipeId', component: RecipeDetailComponent},
+  {path: 'recipe-detail', component: RecipeDetailComponent},
   {path: 'settings', component: SettingsComponent},
 ];
 

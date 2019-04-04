@@ -6,6 +6,7 @@ import { NgbdSortableHeader, SortEvent } from 'src/app/directive/sortable.direct
 import { RecipeTableService } from 'src/app/service/recipe/recipe-table.service';
 import { DecimalPipe } from '@angular/common';
 import { Observable } from 'rxjs';
+import { RecipeDataService } from 'src/app/data/recipe/recipe-data.service';
 
 
 @Component({
@@ -26,7 +27,8 @@ export class RecipeListComponent implements OnInit {
   constructor(
     private router: Router,
     private recipeService: RecipeService,
-    private recipeTableService: RecipeTableService) {
+    private recipeTableService: RecipeTableService,
+    private recipeDataService: RecipeDataService) {
       this.recipes$ = this.recipeTableService.recipes$;
       this.total$ = this.recipeTableService.total$;
      }
@@ -53,6 +55,11 @@ export class RecipeListComponent implements OnInit {
     // Set the sort column and direction
     this.recipeTableService.sortColumn = column;
     this.recipeTableService.sortDirection = direction;
+  }
+
+  onSelect(recipe) {
+    this.recipeDataService.changeRecipe(recipe);
+    this.router.navigate(['recipe-detail']);
   }
 
 }

@@ -18,6 +18,7 @@ import { NavAdminComponent } from './component/navigation/nav-admin/nav-admin.co
 import { AccountEditComponent } from './component/authentication/account/account-edit/account-edit.component';
 import { RecipeDetailComponent } from './component/recipe/recipe-detail/recipe-detail.component';
 import { NgbdSortableHeader } from './directive/sortable.directive';
+import { RecipeDataService } from './data/recipe/recipe-data.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { NgbdSortableHeader } from './directive/sortable.directive';
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
-    }
+    },
+    RecipeDataService
   ],
   bootstrap: [AppComponent]
 })
