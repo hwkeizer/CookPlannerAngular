@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { RecipeDataService } from 'src/app/data/recipe/recipe-data.service';
 import { Subscription } from 'rxjs';
 import { Recipe } from 'src/app/model/Recipe';
@@ -20,6 +20,7 @@ function concatTags(tags: Tag[]): string {
 })
 export class RecipeDetailComponent implements OnInit, OnDestroy {
 
+  baseUrl = environment.serverUrl;
   private _recipeSubscription: Subscription
   recipe: Recipe;
 
