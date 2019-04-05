@@ -1,36 +1,116 @@
 <div class="container mt-2">
   <div class="row justify-content-center mb-3">
-    <a class="btn btn-success bg-success m-2" role="button">Naar overzicht</a>
-    <a class="btn btn-success bg-success m-2" role="button">Recept wijzigen</a>
-    <a class="btn btn-danger bg-danger m-2" role="button">Recept verwijderen</a>
+    <a class="btn btn-success bg-success m-2" role="button" routerLink='/recipe-list'>Naar overzicht</a>
+    <a class="btn btn-success bg-success m-2" role="button" routerLink='/recipe-edit'>Recept wijzigen</a>
+    <a class="btn btn-danger bg-danger m-2" role="button" routerLink='/recipe-delete'>Recept verwijderen</a>
   </div>
   <div class="row justify-content-center">
     <h1 class="text-dark display-5 mb-3">{{recipe.name}}</h1>
   </div>
 
+  <div class="row justify-content-left">
+    <div class="col-md-6">
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <td>Beschrijving:</td>
+            <td>{{recipe.description}}</td>
+          </tr>
+          <tr>
+            <td>Categorieën</td>
+            <td>{{recipe.concatTags}}</td>
+          </tr>
+          <tr>
+            <td>Recept type:</td>
+            <td>{{recipe.recipeType}}</td>
+          </tr>
+          <tr>
+            <td>Voorbereidingstijd:</td>
+            <td>{{recipe.preparationTime}}</td>
+          </tr>
+          <tr>
+            <td>Bereidingstijd:</td>
+            <td>{{recipe.cookTime}}</td>
+          </tr>
+          <tr>
+            <td>Aantal personen</td>
+            <td>{{recipe.servings}}</td>
+          </tr>
+          <tr>
+            <td>Waardering</td>
+            <td>{{recipe.rating}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Dummy image for testing purposes-->
+    <div class="col-md-6 float-right">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Schnitzel.JPG" alt="TEST" class="img-responsive"
+        style=" max-height: 300px;">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <td>Notities:</td>
+            <td>{{recipe.notes}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <div class="row h-80">
+      <table class="table table-sm item-hl">
+        <thead>
+          <tr>
+            <th>Hoeveelheid</th>
+            <th>Eenheid</th>
+            <th>Ingrediënt</th>
+            <th>Voorraad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ingredient of recipe.ingredients">
+            <td>{{ingredient.amount}}</td>
+            <td>{{ingredient.amount >= 2 ? ingredient.measureUnit.pluralName : ingredient.measureUnit.name}}</td>
+            <td>{{ingredient.name.name}}</td>
+            <td>{{ingredient.stock == true ? 'Ja' : 'Nee'}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="col-md-12">
         <table class="table table-bordered table-striped">
           <tbody>
             <tr>
-              <td>Beschrijving:</td>
-              <td>{{recipe.description}}</td>
-            </tr>
-            <tr>
-              <td>Recept type:</td>
-              <td>{{recipe.recipeType}}</td>
-            </tr>
-            <tr>
-              <td>Voorbereidingstijd:</td>
-              <td>{{recipe.preparationTime}}</td>
-            </tr>
-            <tr>
-              <td>Bereidingstijd:</td>
-              <td>{{recipe.cookTime}}</td>
+              <td>Voorbereiding:</td>
+              <td class="preserve-newlines">{{recipe.preparations}}</td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
-  </div>
+
+    <div class="row">
+        <div class="col-md-12">
+          <table class="table table-bordered table-striped">
+            <tbody>
+              <tr>
+                <td>Bereidingen:</td>
+                <td class="preserve-newlines">{{recipe.directions}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+ 

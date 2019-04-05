@@ -33,3 +33,11 @@ th[sortable].desc:before, th[sortable].asc:before {
     transform: rotate(180deg);
     -ms-transform: rotate(180deg);
   }
+
+  /*
+  End of copied part
+  */
+
+.preserve-newlines {
+    white-space: pre-wrap;
+}

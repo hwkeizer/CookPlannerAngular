@@ -1,4 +1,5 @@
 import { Ingredient } from './Ingredient';
+import { Tag } from './Tag';
 
 export class Recipe {
     id: number;
@@ -6,8 +7,14 @@ export class Recipe {
     description: string;
     notes: string;
     ingredients: Ingredient[];
+    image: string;
     recipeType: string;
+    tags: Tag[];
+    concatTags: string;
     preparationTime: string;
     cookTime: string;
+    servings: number;
+    preparations: string;
+    directions: string;
     rating: string;
 }
