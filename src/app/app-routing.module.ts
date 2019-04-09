@@ -11,6 +11,7 @@ import { AccountListComponent } from './component/authentication/account/account
 import { AccountCreateComponent } from './component/authentication/account/account-create/account-create.component';
 import { AccountEditComponent } from './component/authentication/account/account-edit/account-edit.component';
 import { RecipeDetailComponent } from './component/recipe/recipe-detail/recipe-detail.component';
+import { RecipeEditComponent } from './component/recipe/recipe-edit/recipe-edit.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'account-edit', component: AccountEditComponent},
   {path: 'recipe-list', component: RecipeListComponent},
   {path: 'recipe-detail', component: RecipeDetailComponent},
+  {path: 'recipe-edit', component: RecipeEditComponent},
   {path: 'settings', component: SettingsComponent},
 ];
 

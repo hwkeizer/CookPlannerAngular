@@ -13,6 +13,14 @@ export class RecipeService {
   constructor(private http: HttpClient) { }
 
   getRecipeList() {
-    return this.http.get<any>(this.baseUrl + 'recipe/list')
+    return this.http.get<any>(this.baseUrl + 'recipe/list');
+  }
+
+  getRecipeTypes() {
+    return this.http.get<any>(this.baseUrl + 'recipe/types')
+  }
+
+  updateRecipe(recipe) {
+    return this.http.put<Recipe>(this.baseUrl + 'recipe/update', recipe);
   }
 }

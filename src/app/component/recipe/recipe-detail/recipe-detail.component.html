@@ -1,4 +1,4 @@
-<div class="container mt-2">
+<div *ngIf="recipe" class="container mt-2">
   <div class="row justify-content-center mb-3">
     <a class="btn btn-success bg-success m-2" role="button" routerLink='/recipe-list'>Naar overzicht</a>
     <a class="btn btn-success bg-success m-2" role="button" routerLink='/recipe-edit'>Recept wijzigen</a>
@@ -45,8 +45,7 @@
     </div>
 
     <div class="col-md-6 float-right">
-      <img [attr.src]="baseUrl + 'recipe/get-image?name=' + recipe.image"
-        style=" max-height: 300px;">
+      <img [attr.src]="baseUrl + 'recipe/get-image?name=' + recipe.image" style=" max-height: 300px;">
     </div>
   </div>
 
@@ -87,29 +86,28 @@
   </div>
 
   <div class="row">
-      <div class="col-md-12">
-        <table class="table table-bordered table-striped">
-          <tbody>
-            <tr>
-              <td>Voorbereiding:</td>
-              <td class="preserve-newlines">{{recipe.preparations}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <div class="col-md-12">
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <td>Voorbereiding:</td>
+            <td class="preserve-newlines">{{recipe.preparations}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 
-    <div class="row">
-        <div class="col-md-12">
-          <table class="table table-bordered table-striped">
-            <tbody>
-              <tr>
-                <td>Bereidingen:</td>
-                <td class="preserve-newlines">{{recipe.directions}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
- 
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <td>Bereidingen:</td>
+            <td class="preserve-newlines">{{recipe.directions}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
