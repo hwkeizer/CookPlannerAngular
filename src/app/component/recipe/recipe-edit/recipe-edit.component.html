@@ -14,29 +14,6 @@
               </td>
             </tr>
             <tr>
-              <td>Beschrijving:</td>
-              <td>
-                <input type="text" class="form-control" formControlName="description" autocomplete="off">
-              </td>
-            </tr>
-            <tr>
-              <td>Categorieën:</td>
-              <td>{{recipe.concatTags}}</td>
-            </tr>
-            <tr>
-              <td>Recept type:</td>
-              <td>
-                <select class="form-control" formControlName="recipeType">
-                  <option value="" disabled="true">-- Selecteer een recept type --</option>
-                  <option *ngFor="let type of types" value={{type}}>{{type}}</option>
-                </select>
-                <div *ngIf="recipeType.invalid && (recipeType.dirty || recipeType.touched || submitted)"
-                  class="alert alert-danger mt-1">
-                  <div *ngIf="recipeType.errors.required">Recept type is vereist...</div>
-                </div>
-              </td>
-            </tr>
-            <tr>
               <td>Voorbereidingstijd:</td>
               <td>
                 <input type="number" class="form-control" formControlName="preparationTime" autocomplete="off">
@@ -80,8 +57,41 @@
         </table>
       </div>
 
-      <div class="col-md-6 float-right">
+      <div class="col-md-6">
         <img [attr.src]="baseUrl + 'recipe/get-image?name=' + recipe.image" style=" max-height: 300px;">
+      </div>
+
+      <div class="container">
+        <recipe-type-form 
+          (formReady)="formInitialized('recipeTypeForm', $event)" 
+          [submitted]="submitted"
+          [recipe]=recipe>
+        </recipe-type-form>
+      </div>
+
+      <div class="container">
+        <table class="table table-bordered table-striped col-md-12">
+          <tbody>
+            <td>Beschrijving:</td>
+            <td>
+              <input type="text" class="form-control" formControlName="description" autocomplete="off">
+            </td>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- <div class="container">
+        <recipe-tags-form 
+          (formReady)="formInitialized('recipeTagForm', $event)" 
+          [submitted]="submitted"
+          [recipe]=recipe>
+        </recipe-tags-form>
+      </div> -->
+
+      <div class="col-md-12 my-5">
+        <div>
+          <div>Categorieën: {{recipe.concatTags}}</div>
+        </div>
       </div>
     </div>
     <button class="btn btn-primary">Wijzig recept</button>

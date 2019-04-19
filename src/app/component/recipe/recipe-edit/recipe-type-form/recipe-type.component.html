@@ -1,0 +1,19 @@
+  <div [formGroup]='recipeTypeForm'>
+        <table class="table table-bordered table-striped">
+          <tbody>
+            <tr>
+              <td>Recept type:</td>
+              <td>
+                <select class="form-control" formControlName="recipeType">
+                  <option value="" disabled="true">-- Selecteer een recept type --</option>
+                  <option *ngFor="let type of types" value={{type}}>{{type}}</option>
+                </select>
+                <div *ngIf="recipeType.invalid && (recipeType.dirty || recipeType.touched || submitted)"
+                  class="alert alert-danger mt-1">
+                  <div *ngIf="recipeType.errors.required">Recept type is vereist...</div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>

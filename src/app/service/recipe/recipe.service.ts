@@ -17,7 +17,11 @@ export class RecipeService {
   }
 
   getRecipeTypes() {
-    return this.http.get<any>(this.baseUrl + 'recipe/types')
+    return this.http.get<any>(this.baseUrl + 'recipe/types');
+  }
+
+  getAllTags() {
+    return this.http.get<any>(this.baseUrl + 'recipe/all-tags');
   }
 
   updateRecipe(recipe) {
