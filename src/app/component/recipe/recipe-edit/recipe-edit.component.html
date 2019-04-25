@@ -1,157 +1,135 @@
-<div *ngIf="recipe" class="container mt-2">
+<div *ngIf="recipe" class="col-md-10 container mt-2 float-left">
+  <h2>Recept wijzigen</h2>
   <form [formGroup]="editForm" (ngSubmit)="onEdit()">
-    <div class="row justify-content-left">
-      <div class="col-md-6">
-        <table class="table table-bordered table-striped">
-          <tbody>
-            <tr>
-              <td>Recept naam:</td>
-              <td>
-                <input type="text" class="form-control" formControlName="name" autocomplete="off">
-                <div *ngIf="name.invalid && (name.dirty || name.touched || submitted)" class="alert alert-danger mt-1">
-                  <div *ngIf="name.errors.required">Receptnaam is vereist...</div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Voorbereidingstijd:</td>
-              <td>
-                <input type="number" class="form-control" formControlName="preparationTime" autocomplete="off">
-                <div *ngIf="preparationTime.invalid && (preparationTime.dirty || preparationTime.touched || submitted)"
-                  class="alert alert-danger mt-1">
-                  <div *ngIf="preparationTime.errors.min">Voorbereidingstijd kan niet negatief zijn...</div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Bereidingstijd:</td>
-              <td>
-                <input type="number" class="form-control" formControlName="cookTime" autocomplete="off">
-                <div *ngIf="cookTime.invalid && (cookTime.dirty || cookTime.touched || submitted)"
-                  class="alert alert-danger mt-1">
-                  <div *ngIf="cookTime.errors.min">Bereidingstijd kan niet negatief zijn...</div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Aantal personen:</td>
-              <td>
-                <input type="number" class="form-control" formControlName="servings" autocomplete="off">
-                <div *ngIf="servings.invalid && (servings.dirty || servings.touched || submitted)"
-                  class="alert alert-danger mt-1">
-                  <div *ngIf="servings.errors.min">Aantal personen kan niet negatief zijn...</div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Waardering:</td>
-              <td>
-                <input type="number" class="form-control" formControlName="rating" autocomplete="off">
-                <div *ngIf="rating.invalid && (rating.dirty || rating.touched || submitted)"
-                  class="alert alert-danger mt-1">
-                  <div *ngIf="rating.errors.min">Waardering kan niet negatief zijn...</div>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
 
-      <div class="col-md-6">
-        <img [attr.src]="baseUrl + 'recipe/get-image?name=' + recipe.image" style=" max-height: 300px;">
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Recept naam:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="name" autocomplete="off">
+        <div *ngIf="name.invalid && (name.dirty || name.touched || submitted)" class="alert alert-danger mt-1">
+          <div *ngIf="name.errors.required">Receptnaam is vereist...</div>
+        </div>
       </div>
-
-      <div class="container">
-        <recipe-type-form 
-          (formReady)="formInitialized('recipeTypeForm', $event)" 
-          [submitted]="submitted"
-          [recipe]=recipe>
-        </recipe-type-form>
-      </div>
-
-      <div class="container">
-        <table class="table table-bordered table-striped col-md-12">
-          <tbody>
-            <td>Beschrijving:</td>
-            <td>
-              <input type="text" class="form-control" formControlName="description" autocomplete="off">
-            </td>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="container">
-        <recipe-tags-form 
-          (formReady)="formInitialized('recipeTagForm', $event)" 
-          [submitted]="submitted"
-          [recipe]=recipe
-          >
-        </recipe-tags-form>
-      </div>
-
     </div>
-    <button class="btn btn-primary my-3">Wijzig recept</button>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Omschrijving:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" formControlName="description" autocomplete="off">
+        </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Voorbereidingstijd:</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" formControlName="preparationTime" autocomplete="off">
+        <div *ngIf="preparationTime.invalid && (preparationTime.dirty || preparationTime.touched || submitted)"
+          class="alert alert-danger mt-1">
+          <div *ngIf="preparationTime.errors.min">Voorbereidingstijd kan niet negatief zijn...</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Bereidingstijd:</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" formControlName="cookTime" autocomplete="off">
+        <div *ngIf="cookTime.invalid && (cookTime.dirty || cookTime.touched || submitted)"
+          class="alert alert-danger mt-1">
+          <div *ngIf="cookTime.errors.min">Bereidingstijd kan niet negatief zijn...</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Aantal personen:</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" formControlName="servings" autocomplete="off">
+        <div *ngIf="servings.invalid && (servings.dirty || servings.touched || submitted)"
+          class="alert alert-danger mt-1">
+          <div *ngIf="servings.errors.min">Aantal personen kan niet negatief zijn...</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Waardering:</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" formControlName="rating" autocomplete="off">
+        <div *ngIf="rating.invalid && (rating.dirty || rating.touched || submitted)" class="alert alert-danger mt-1">
+          <div *ngIf="rating.errors.min">Waardering kan niet negatief zijn...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recipe Type Form-->
+    <recipe-type-form 
+      class="container" 
+      (formReady)="formInitialized('recipeTypeForm', $event)"
+      [submitted]="submitted" 
+      [recipe]=recipe>
+    </recipe-type-form>
+
+    <!-- Recipe Tags Form-->
+    <recipe-tags-form 
+      class="container" 
+      (formReady)="formInitialized('recipeTagForm', $event)" 
+      [submitted]="submitted" 
+      [recipe]=recipe>
+    </recipe-tags-form>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Notities:</label>
+        <div class="col-sm-10">
+          <textarea class="form-control preserve-newlines" formControlName="notes"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Voorbereiding:</label>
+        <div class="col-sm-10">
+          <textarea class="form-control preserve-newlines" formControlName="preparations"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Bereiding:</label>
+        <div class="col-sm-10">
+          <textarea class="form-control preserve-newlines" formControlName="directions"></textarea>
+        </div>
+    </div>
+
+    <button class="btn btn-primary my-3">Wijzigingen opslaan</button>
   </form>
+</div>
 
-  <div class="row">
-    <div class="col-md-12">
-      <table class="table table-bordered table-striped">
-        <tbody>
-          <tr>
-            <td>Notities:</td>
-            <td>{{recipe.notes}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+<!-- Image en Ingredienten moeten nog aan de form worden toegevoegd
 
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <table class="table table-sm item-hl">
-        <thead>
-          <tr>
-            <th>Hoeveelheid</th>
-            <th>Eenheid</th>
-            <th>Ingrediënt</th>
-            <th>Voorraad</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let ingredient of recipe.ingredients">
-            <td>{{ingredient.amount}}</td>
-            <td>{{ingredient.amount >= 2 ? ingredient.measureUnit.pluralName : ingredient.measureUnit.name}}</td>
-            <td>{{ingredient.name.name}}</td>
-            <td>{{ingredient.stock == true ? 'Ja' : 'Nee'}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+<div class="col-md-6">
+  <img [attr.src]="baseUrl + 'recipe/get-image?name=' + recipe.image" style=" max-height: 300px;">
+</div>
 
-  <div class="row">
-    <div class="col-md-12">
-      <table class="table table-bordered table-striped">
-        <tbody>
-          <tr>
-            <td>Voorbereiding:</td>
-            <td class="preserve-newlines">{{recipe.preparations}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-12">
-      <table class="table table-bordered table-striped">
-        <tbody>
-          <tr>
-            <td>Bereidingen:</td>
-            <td class="preserve-newlines">{{recipe.directions}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <table class="table table-sm item-hl">
+      <thead>
+        <tr>
+          <th>Hoeveelheid</th>
+          <th>Eenheid</th>
+          <th>Ingrediënt</th>
+          <th>Voorraad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ingredient of recipe.ingredients">
+          <td>{{ingredient.amount}}</td>
+          <td>{{ingredient.amount >= 2 ? ingredient.measureUnit.pluralName : ingredient.measureUnit.name}}</td>
+          <td>{{ingredient.name.name}}</td>
+          <td>{{ingredient.stock == true ? 'Ja' : 'Nee'}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
+</div> -->

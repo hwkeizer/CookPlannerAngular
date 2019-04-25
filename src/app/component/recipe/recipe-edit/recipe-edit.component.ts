@@ -38,9 +38,12 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
         this.editForm = this.formBuilder.group({
           name: ['', Validators.required],
           description: [''],
+          notes: [''],
           preparationTime: ['', Validators.min(0)],
           cookTime: ['', Validators.min(0)],
           servings: ['', Validators.min(0)],
+          preparations: [''],
+          directions: ['', Validators.required],
           rating: ['', Validators.min(0)]
         });
         this.editForm.patchValue(this.recipe);
@@ -60,10 +63,13 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
     }    
     this.recipe.name = this.editForm.get('name').value;
     this.recipe.description = this.editForm.get('description').value;
+    this.recipe.notes = this.editForm.get('notes').value;
     this.recipe.recipeType = this.editForm.get('recipeTypeForm.recipeType').value;
     this.recipe.preparationTime = this.editForm.get('preparationTime').value;
     this.recipe.cookTime = this.editForm.get('cookTime').value;
     this.recipe.servings = this.editForm.get('servings').value;
+    this.recipe.preparations = this.editForm.get('preparations').value;
+    this.recipe.directions = this.editForm.get('directions').value;
     this.recipe.rating = this.editForm.get('rating').value;
 
     this.recipeService.updateRecipe(this.recipe).subscribe(
