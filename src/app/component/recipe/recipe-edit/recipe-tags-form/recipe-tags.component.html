@@ -1,0 +1,10 @@
+<div class="my-3" [formGroup]='recipeTagsForm' (ngSubmit)="submit()">
+  <h3>Categorieën</h3>
+  <div 
+    class="col-md-3 float-left"
+    formArrayName="tags" 
+    *ngFor="let tag of recipeTagsForm.controls.tags.controls; let i = index">
+    <input type="checkbox" [formControlName]="i" (change)="onCheckBoxChange(i)">
+    <label class="ml-2">{{allTags[i].name}}</label>
+  </div>
+</div>

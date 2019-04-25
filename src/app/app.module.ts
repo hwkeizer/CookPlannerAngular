@@ -21,6 +21,7 @@ import { NgbdSortableHeader } from './directive/sortable.directive';
 import { RecipeDataService } from './data/recipe/recipe-data.service';
 import { RecipeEditComponent } from './component/recipe/recipe-edit/recipe-edit.component';
 import { RecipeTypeComponent } from './component/recipe/recipe-edit/recipe-type-form/recipe-type.component';
+import { RecipeTagsComponent } from './component/recipe/recipe-edit/recipe-tags-form/recipe-tags.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { RecipeTypeComponent } from './component/recipe/recipe-edit/recipe-type-
     NgbdSortableHeader,
     RecipeEditComponent,
     RecipeTypeComponent,
+    RecipeTagsComponent,
   ],
   imports: [
     BrowserModule,

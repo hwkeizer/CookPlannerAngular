@@ -80,21 +80,17 @@
         </table>
       </div>
 
-      <!-- <div class="container">
+      <div class="container">
         <recipe-tags-form 
           (formReady)="formInitialized('recipeTagForm', $event)" 
           [submitted]="submitted"
-          [recipe]=recipe>
+          [recipe]=recipe
+          >
         </recipe-tags-form>
-      </div> -->
-
-      <div class="col-md-12 my-5">
-        <div>
-          <div>Categorieën: {{recipe.concatTags}}</div>
-        </div>
       </div>
+
     </div>
-    <button class="btn btn-primary">Wijzig recept</button>
+    <button class="btn btn-primary my-3">Wijzig recept</button>
   </form>
 
   <div class="row">
