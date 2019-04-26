@@ -7,14 +7,6 @@ import { Tag } from 'src/app/model/Tag';
 import { Router } from '@angular/router';
 import { routerNgProbeToken } from '@angular/router/src/router_module';
 
-function concatTags(tags: Tag[]): string {
-  let tagNames: string[] = [];
-  tags.forEach(tag => {
-    tagNames.push(tag.name);
-  })
-  return tagNames.join(", ");
-}
-
 @Component({
   selector: 'app-recipe-detail',
   templateUrl: './recipe-detail.component.html',
@@ -30,6 +22,14 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
     private recipeDataService: RecipeDataService,
     private router: Router) { }
 
+  concatTags() {
+    let tagNames: string[] = [];
+    this.recipe.tags.forEach(tag => {
+      tagNames.push(tag.name);
+    })
+    return tagNames.join(", ");
+  }
+
   ngOnInit() {
     this._recipeSubscription = this.recipeDataService.recipe.subscribe(
       data => {
@@ -38,7 +38,7 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
           this.router.navigate(['recipe-list']);
         }
         this.recipe = data;
-        this.recipe.concatTags = concatTags(this.recipe.tags);
+        // this.recipe.concatTags = concatTags(this.recipe.tags);
       }
     )
   }

@@ -10,7 +10,6 @@ export class Recipe {
     image: string;
     recipeType: string;
     tags: Tag[];
-    concatTags: string;
     preparationTime: string;
     cookTime: string;
     servings: number;

@@ -6,7 +6,6 @@ import { RecipeDataService } from 'src/app/data/recipe/recipe-data.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RecipeService } from 'src/app/service/recipe/recipe.service';
-import { Tag } from 'src/app/model/Tag';
 
 @Component({
   selector: 'app-recipe-edit',
@@ -36,9 +35,14 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
         }
         this.recipe = data;
         this.editForm = this.formBuilder.group({
+          id: [''],
           name: ['', Validators.required],
           description: [''],
           notes: [''],
+          ingredients: [''],
+          image: [''],
+          recipeType: [''],
+          tags: [''],
           preparationTime: ['', Validators.min(0)],
           cookTime: ['', Validators.min(0)],
           servings: ['', Validators.min(0)],
@@ -61,6 +65,13 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
     if (this.editForm.invalid) {
       return;
     }    
+
+    // Next two lines work (database is updated) but the view does not get updated???
+    // this.recipe = this.editForm.value;
+    // this.recipe.recipeType = this.editForm.get('recipeTypeForm.recipeType').value;
+
+    // When assigning each field seperately the view gets updated correctly...
+    // This is noted as a bug and needs investigation
     this.recipe.name = this.editForm.get('name').value;
     this.recipe.description = this.editForm.get('description').value;
     this.recipe.notes = this.editForm.get('notes').value;
@@ -71,6 +82,7 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
     this.recipe.preparations = this.editForm.get('preparations').value;
     this.recipe.directions = this.editForm.get('directions').value;
     this.recipe.rating = this.editForm.get('rating').value;
+
 
     this.recipeService.updateRecipe(this.recipe).subscribe(
       data => {
