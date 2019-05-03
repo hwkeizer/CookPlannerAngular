@@ -62,26 +62,10 @@
     </div>
   </div>
 
-  <div class="row justify-content-center">
+  <div class="row justify-content-left">
     <div class="col-md-6">
-      <table class="table table-sm item-hl">
-        <thead>
-          <tr>
-            <th>Hoeveelheid</th>
-            <th>Eenheid</th>
-            <th>Ingrediënt</th>
-            <th>Voorraad</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let ingredient of recipe.ingredients">
-            <td>{{ingredient.amount}}</td>
-            <td>{{ingredient.amount >= 2 ? ingredient.measureUnit.pluralName : ingredient.measureUnit.name}}</td>
-            <td>{{ingredient.name.name}}</td>
-            <td>{{ingredient.stock == true ? 'Ja' : 'Nee'}}</td>
-          </tr>
-        </tbody>
-      </table>
+      <h3>Ingredienten</h3>
+      <ingredients [ingredients]="recipe.ingredients"></ingredients>
     </div>
   </div>
 

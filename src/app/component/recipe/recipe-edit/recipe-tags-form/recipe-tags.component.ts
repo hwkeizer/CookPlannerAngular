@@ -35,8 +35,7 @@ export class RecipeTagsComponent implements OnInit {
   }
 
   private addCheckBoxes() {  
-    this.allTags.map((o, i) => {
-      console.log(JSON.stringify(o) + ' ' + i)    
+    this.allTags.map((o, i) => {   
       const control = new FormControl(this.selectCheckBox(o, this.recipe.tags));
       (this.recipeTagsForm.controls.tags as FormArray).push(control);
     });

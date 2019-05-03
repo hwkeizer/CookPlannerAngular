@@ -1,0 +1,28 @@
+<div [formGroup]="ingredientsForm">
+  <div formArrayName="ingredients">
+      <table class="table table-sm item-hl">
+          <thead>
+            <tr>
+              <th>Hoeveelheid</th>
+              <th>Eenheid</th>
+              <th>Ingrediënt</th>
+              <th>Voorraad</th>
+            </tr>
+          </thead>
+          <tbody >
+                <tr 
+                  *ngFor="let ingredient of ingredientsForm.controls.ingredients.controls; let i = index;"
+                  [formGroupName]="i">
+                  <td><input type="number" class="form-control" formControlName="amount"></td>
+                  <td formGroupName="measureUnit">
+                      <input type="text" class="form-control" formControlName="name">
+                  </td>
+                  <td formGroupName="name" >
+                      <input type="text" class="form-control" formControlName="name">
+                  </td>
+                  <td><input type="text" class="form-control" formControlName="stock"></td>        
+                </tr>
+          </tbody>
+        </table>
+  </div>
+</div>

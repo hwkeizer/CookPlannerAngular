@@ -1,0 +1,18 @@
+<table class="table table-sm item-hl">
+  <thead>
+    <tr>
+      <th>Hoeveelheid</th>
+      <th>Eenheid</th>
+      <th>Ingrediënt</th>
+      <th>Voorraad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ingredient of ingredients">
+      <td>{{ingredient.amount}}</td>
+      <td>{{ingredient.amount >= 2 ? ingredient.measureUnit.pluralName : ingredient.measureUnit.name}}</td>
+      <td>{{ingredient.amount >= 2 ? ingredient.name.pluralName : ingredient.name.name}}</td>
+      <td>{{ingredient.stock == true ? 'Ja' : 'Nee'}}</td>
+    </tr>
+  </tbody>
+</table>
