@@ -1,0 +1,16 @@
+<table class="table table-sm item-hl">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Naam</th>
+      <th>Meervoudsnaam</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let measureUnit of measureUnits">
+      <td>{{measureUnit.id}}</td>
+      <td>{{measureUnit.name}}</td>
+      <td>{{measureUnit.pluralName}}</td>
+    </tr>
+  </tbody>
+</table>

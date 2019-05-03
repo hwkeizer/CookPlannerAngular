@@ -12,6 +12,7 @@ import { AccountCreateComponent } from './component/authentication/account/accou
 import { AccountEditComponent } from './component/authentication/account/account-edit/account-edit.component';
 import { RecipeDetailComponent } from './component/recipe/recipe-detail/recipe-detail.component';
 import { RecipeEditComponent } from './component/recipe/recipe-edit/recipe-edit.component';
+import { MeasureUnitListComponent } from './component/measure-unit/measure-unit-list/measure-unit-list.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path: 'recipe-list', component: RecipeListComponent},
   {path: 'recipe-detail', component: RecipeDetailComponent},
   {path: 'recipe-edit', component: RecipeEditComponent},
+  {path: 'measure-unit-list', component: MeasureUnitListComponent},
   {path: 'settings', component: SettingsComponent},
 ];
 

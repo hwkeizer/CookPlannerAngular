@@ -24,6 +24,7 @@ import { RecipeTypeComponent } from './component/recipe/recipe-edit/recipe-type-
 import { RecipeTagsComponent } from './component/recipe/recipe-edit/recipe-tags-form/recipe-tags.component';
 import { IngredientsComponent } from './component/ingredient/ingredients/ingredients.component';
 import { IngredientsEditComponent } from './component/ingredient/ingredients-edit/ingredients-edit.component';
+import { MeasureUnitListComponent } from './component/measure-unit/measure-unit-list/measure-unit-list.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { IngredientsEditComponent } from './component/ingredient/ingredients-edi
     RecipeTagsComponent,
     IngredientsComponent,
     IngredientsEditComponent,
+    MeasureUnitListComponent,
   ],
   imports: [
     BrowserModule,
