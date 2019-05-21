@@ -23,10 +23,10 @@ import { RecipeEditComponent } from './component/recipe/recipe-edit/recipe-edit.
 import { RecipeTypeComponent } from './component/recipe/recipe-edit/recipe-type-form/recipe-type.component';
 import { RecipeTagsComponent } from './component/recipe/recipe-edit/recipe-tags-form/recipe-tags.component';
 import { IngredientsComponent } from './component/ingredient/ingredient-list/ingredient-list.component';
-import { IngredientsEditComponent } from './component/ingredient/ingredients-edit/ingredients-edit.component';
+import { IngredientsEditComponent } from './component/ingredient/ingredient-list-edit/ingredient-list-edit.component';
 import { MeasureUnitListComponent } from './component/measure-unit/measure-unit-list/measure-unit-list.component';
-import { MeasureUnitEditComponent } from './component/ingredient/ingredients-edit/measure-unit-select/measure-unit-select.component';
-import { IngredientNameEditComponent } from './component/ingredient/ingredients-edit/ingredient-name-select/ingredient-name-select.component';
+import { MeasureUnitEditComponent } from './component/ingredient/ingredient-list-edit/measure-unit-select/measure-unit-select.component';
+import { IngredientNameEditComponent } from './component/ingredient/ingredient-list-edit/ingredient-name-select/ingredient-name-select.component';
 import { IngredientNameListComponent } from './component/ingredient-name/ingredient-name-list/ingredient-name-list.component';
 
 @NgModule({

@@ -7,9 +7,9 @@ import { IngredientName } from 'src/app/model/IngredientName';
  * Component to display an editable list of ingredients in a table
  */
 @Component({
-  selector: 'ingredients-edit',
-  templateUrl: './ingredients-edit.component.html',
-  styleUrls: ['./ingredients-edit.component.css']
+  selector: 'ingredient-list-edit',
+  templateUrl: './ingredient-list-edit.component.html',
+  styleUrls: ['./ingredient-list-edit.component.css']
 })
 export class IngredientsEditComponent implements OnInit {
 
