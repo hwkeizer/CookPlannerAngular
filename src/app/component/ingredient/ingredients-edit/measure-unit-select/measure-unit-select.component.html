@@ -1,0 +1,14 @@
+<ng-template #rt let-r="result" let-t="term">
+  <ngb-highlight [result]="r.name" [term]="t"></ngb-highlight>
+</ng-template>
+
+<input 
+  id="measureUnit" 
+  type="text" 
+  class="from-control" 
+  [(ngModel)]="measureUnit" 
+  [ngbTypeahead]="search" 
+  [resultTemplate]="rt"
+  [inputFormatter]="formatter"
+  (selectItem)="selectedItem($event)"
+  />

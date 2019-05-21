@@ -22,9 +22,11 @@ import { RecipeDataService } from './data/recipe/recipe-data.service';
 import { RecipeEditComponent } from './component/recipe/recipe-edit/recipe-edit.component';
 import { RecipeTypeComponent } from './component/recipe/recipe-edit/recipe-type-form/recipe-type.component';
 import { RecipeTagsComponent } from './component/recipe/recipe-edit/recipe-tags-form/recipe-tags.component';
-import { IngredientsComponent } from './component/ingredient/ingredients/ingredients.component';
+import { IngredientsComponent } from './component/ingredient/ingredient-list/ingredient-list.component';
 import { IngredientsEditComponent } from './component/ingredient/ingredients-edit/ingredients-edit.component';
 import { MeasureUnitListComponent } from './component/measure-unit/measure-unit-list/measure-unit-list.component';
+import { MeasureUnitEditComponent } from './component/ingredient/ingredients-edit/measure-unit-select/measure-unit-select.component';
+import { IngredientNameEditComponent } from './component/ingredient/ingredients-edit/ingredient-name-edit/ingredient-name-select.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { MeasureUnitListComponent } from './component/measure-unit/measure-unit-
     IngredientsComponent,
     IngredientsEditComponent,
     MeasureUnitListComponent,
+    MeasureUnitEditComponent,
+    IngredientNameEditComponent,
   ],
   imports: [
     BrowserModule,

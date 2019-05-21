@@ -3,7 +3,7 @@ import { MeasureUnitService } from 'src/app/service/measure-unit/measure-unit.se
 import { MeasureUnit } from 'src/app/model/MeasureUnit';
 
 @Component({
-  selector: 'app-measure-unit-list',
+  selector: 'measure-unit-list',
   templateUrl: './measure-unit-list.component.html',
   styleUrls: ['./measure-unit-list.component.css']
 })
