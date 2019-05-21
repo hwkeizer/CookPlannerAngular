@@ -49,8 +49,6 @@ export class IngredientsEditComponent implements OnInit {
 
   // Add updated ingredientName to the ingredient and patch into the form
   updateIngredientName(ingredientName, ingredient) {
-    console.log('Update IngredientName: ', ingredientName)
-    console.log('Update Ingredient: ', ingredient)
     this.ingredients = this.ingredientsForm.get('ingredients').value;
     this.ingredients.map((item, i) => {
       if (item.id == ingredient.id) {
@@ -59,5 +57,7 @@ export class IngredientsEditComponent implements OnInit {
     });
     this.ingredientsForm.get('ingredients').patchValue(this.ingredients);
   }
+
+  
 
 }

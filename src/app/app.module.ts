@@ -26,7 +26,7 @@ import { IngredientsComponent } from './component/ingredient/ingredient-list/ing
 import { IngredientsEditComponent } from './component/ingredient/ingredients-edit/ingredients-edit.component';
 import { MeasureUnitListComponent } from './component/measure-unit/measure-unit-list/measure-unit-list.component';
 import { MeasureUnitEditComponent } from './component/ingredient/ingredients-edit/measure-unit-select/measure-unit-select.component';
-import { IngredientNameEditComponent } from './component/ingredient/ingredients-edit/ingredient-name-edit/ingredient-name-select.component';
+import { IngredientNameEditComponent } from './component/ingredient/ingredients-edit/ingredient-name-select/ingredient-name-select.component';
 import { IngredientNameListComponent } from './component/ingredient-name/ingredient-name-list/ingredient-name-list.component';
 
 @NgModule({
