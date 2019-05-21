@@ -6,7 +6,7 @@ import { MeasureUnitService } from 'src/app/service/measure-unit/measure-unit.se
 /**
  * MeasureUnitDataService provides the list of all available measure units.
  * This list is initialized from the database and can be updated through the 
- * 'updateMeasureUnits(MeasureUnit[])' methode or can be asked to synch with the database
+ * 'updateMeasureUnits(MeasureUnit[])' methode or can be asked to synch from the database
  */
 @Injectable({
   providedIn: 'root'

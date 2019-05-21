@@ -17,7 +17,6 @@ export class IngredientsEditComponent implements OnInit {
   @Input() submitted;
   @Output() formReady = new EventEmitter<FormGroup>()
   ingredientsForm: FormGroup;
-  ingredientNames: IngredientName[];
 
   constructor(
     private formBuilder: FormBuilder) {}
@@ -43,6 +42,19 @@ export class IngredientsEditComponent implements OnInit {
     this.ingredients.map((item, i) => {
       if (item.id == ingredient.id) {
         this.ingredients[i].measureUnit = measureUnit;
+      }
+    });
+    this.ingredientsForm.get('ingredients').patchValue(this.ingredients);
+  }
+
+  // Add updated ingredientName to the ingredient and patch into the form
+  updateIngredientName(ingredientName, ingredient) {
+    console.log('Update IngredientName: ', ingredientName)
+    console.log('Update Ingredient: ', ingredient)
+    this.ingredients = this.ingredientsForm.get('ingredients').value;
+    this.ingredients.map((item, i) => {
+      if (item.id == ingredient.id) {
+        this.ingredients[i].name = ingredientName;
       }
     });
     this.ingredientsForm.get('ingredients').patchValue(this.ingredients);

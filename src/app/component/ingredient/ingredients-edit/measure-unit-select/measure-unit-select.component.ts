@@ -1,11 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { Subscription, Observable } from 'rxjs';
 import { MeasureUnitDataService } from 'src/app/data/measure-unit/measure-unit-data.service';
 import { MeasureUnit } from 'src/app/model/MeasureUnit';
 import { debounceTime, map, distinctUntilChanged } from 'rxjs/operators';
 
 /**
- * Component to select a different measureUnit from the list of available
+ * Component to select a single measureUnit from the list of available
  * measure units. The component shows the (single) name field.
  */
 @Component({
@@ -13,7 +13,7 @@ import { debounceTime, map, distinctUntilChanged } from 'rxjs/operators';
   templateUrl: './measure-unit-select.component.html',
   styleUrls: ['./measure-unit-select.component.css']
 })
-export class MeasureUnitEditComponent implements OnInit {
+export class MeasureUnitEditComponent implements OnInit, OnDestroy {
 
   @Input() measureUnit: MeasureUnit;
   @Output() valueChange: EventEmitter<MeasureUnit> = new EventEmitter<MeasureUnit>();
@@ -46,5 +46,9 @@ export class MeasureUnitEditComponent implements OnInit {
 
   selectedItem(value) {
     this.valueChange.emit(value.item);
+  }
+
+  ngOnDestroy() {
+    this.measureUnitSubscription.unsubscribe();
   }
 }

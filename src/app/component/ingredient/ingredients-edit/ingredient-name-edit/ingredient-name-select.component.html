@@ -1,3 +1,14 @@
-<p>
-  ingredient-name-edit works!
-</p>
+<ng-template #rt let-r="result" let-t="term">
+  <ngb-highlight [result]="r.name" [term]="t"></ngb-highlight>
+</ng-template>
+
+<input 
+  id="ingredientName" 
+  type="text" 
+  class="from-control" 
+  [(ngModel)]="ingredientName" 
+  [ngbTypeahead]="search" 
+  [resultTemplate]="rt"
+  [inputFormatter]="formatter"
+  (selectItem)="selectedItem($event)"
+  />
