@@ -17,7 +17,6 @@ export class MeasureUnitListComponent implements OnInit {
     this.measureUnitService.getMeasureUnitList().subscribe(
       data => {
         this.measureUnits = data.result;
-        console.log(this.measureUnits);
       }
     )
   }

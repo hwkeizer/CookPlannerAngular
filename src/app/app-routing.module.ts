@@ -13,6 +13,7 @@ import { AccountEditComponent } from './component/authentication/account/account
 import { RecipeDetailComponent } from './component/recipe/recipe-detail/recipe-detail.component';
 import { RecipeEditComponent } from './component/recipe/recipe-edit/recipe-edit.component';
 import { MeasureUnitListComponent } from './component/measure-unit/measure-unit-list/measure-unit-list.component';
+import { IngredientNameListComponent } from './component/ingredient-name/ingredient-name-list/ingredient-name-list.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path: 'recipe-detail', component: RecipeDetailComponent},
   {path: 'recipe-edit', component: RecipeEditComponent},
   {path: 'measure-unit-list', component: MeasureUnitListComponent},
+  {path: 'ingredient-name-list', component: IngredientNameListComponent},
   {path: 'settings', component: SettingsComponent},
 ];
 

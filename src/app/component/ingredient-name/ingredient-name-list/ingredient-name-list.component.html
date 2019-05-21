@@ -1,0 +1,16 @@
+<table class="table table-sm item-hl">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Naam</th>
+      <th>Meervoudsnaam</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ingredientName of ingredientNames">
+      <td>{{ingredientName.id}}</td>
+      <td>{{ingredientName.name}}</td>
+      <td>{{ingredientName.pluralName}}</td>
+    </tr>
+  </tbody>
+</table>
