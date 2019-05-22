@@ -11,7 +11,7 @@ import { IngredientName } from 'src/app/model/IngredientName';
   templateUrl: './ingredient-list-edit.component.html',
   styleUrls: ['./ingredient-list-edit.component.css']
 })
-export class IngredientsEditComponent implements OnInit {
+export class IngredientListEditComponent implements OnInit {
 
   @Input() ingredients: Ingredient[];
   @Input() submitted;
