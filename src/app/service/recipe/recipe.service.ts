@@ -26,4 +26,8 @@ export class RecipeService {
   updateRecipe(recipe) {
     return this.http.put<any>(this.baseUrl + 'recipe/update', recipe);
   }
+
+  createRecipe(recipe) {
+    return this.http.post<any>(this.baseUrl + 'recipe/create', recipe);
+  }
 }

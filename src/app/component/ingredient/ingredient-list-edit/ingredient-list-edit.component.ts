@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnDestroy, ChangeDetectorRef } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormArray, FormControl } from '@angular/forms';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { Ingredient } from 'src/app/model/Ingredient';
 
 /**
@@ -25,9 +25,11 @@ export class IngredientListEditComponent implements OnInit {
       ingredients: new FormArray([])
     });
     // Add the ingredients to the ingredients FormArray
-    this.ingredients.map((o, i) => {
-      this.ingredientToGroup(o);
-    })
+    if (this.ingredients) {
+      this.ingredients.map((o, i) => {
+        this.ingredientToGroup(o);
+      });
+    }
     // link the ingredientsForm to the parent's form (recipeForm)
     this.formReady.emit(this.ingredientsForm);
   }
@@ -52,8 +54,6 @@ export class IngredientListEditComponent implements OnInit {
   removeIngredient(ingredientIndex) {
     this.ingredients.splice(ingredientIndex, 1);
     (this.ingredientsForm.controls.ingredients as FormArray).removeAt(ingredientIndex);
-  
-    // this.ingredientsForm.get('ingredients').setValue(this.ingredients);
   }
 
   // Add updated measureUnit to the ingredient and patch into the form

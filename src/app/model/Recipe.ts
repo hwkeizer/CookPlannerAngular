@@ -6,10 +6,10 @@ export class Recipe {
     name: string;
     description: string;
     notes: string;
-    ingredients: Ingredient[];
+    ingredients = <Ingredient[]>Array();
     image: string;
     recipeType: string;
-    tags: Tag[];
+    tags = <Tag[]>Array();
     preparationTime: string;
     cookTime: string;
     servings: number;

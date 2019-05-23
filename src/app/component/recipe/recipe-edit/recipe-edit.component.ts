@@ -29,18 +29,16 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
   ngOnInit() {    
     this._recipeSubscription = this.recipeDataService.recipe.subscribe(
       data => {
-        if (data.id === undefined) {
-          this.router.navigate(['recipe-list']);
-          return;
-        }
-        this.recipe = data;
+        if (data.id !== undefined) {
+          this.recipe = data;
+        } else {
+          this.recipe = new Recipe();
+        }       
         this.recipeForm = this.formBuilder.group({
           id: [''],
           name: ['', Validators.required],
           description: [''],
           notes: [''],
-          // ingredients: [''],
-          // image: [''],
           preparationTime: ['', Validators.min(0)],
           cookTime: ['', Validators.min(0)],
           servings: ['', Validators.min(0)],
@@ -83,14 +81,27 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
     this.recipe.directions = this.recipeForm.get('directions').value;
     this.recipe.rating = this.recipeForm.get('rating').value;
     console.log("FORM SUBMIT: ", this.recipeForm.value)
-    this.recipeService.updateRecipe(this.recipe).subscribe(
-      data => {
-        this.router.navigate(['recipe-detail']);
-      },
-      error => {
-        alert(JSON.stringify(error));
-      }
-    )
+
+    // Lot of duplicate code here!
+    if (this.recipe.id) {
+      this.recipeService.updateRecipe(this.recipe).subscribe(
+        data => {
+          this.router.navigate(['recipe-detail']);
+        },
+        error => {
+          alert(JSON.stringify(error));
+        }
+      )
+    } else {
+      this.recipeService.createRecipe(this.recipe).subscribe(
+        data => {
+          this.router.navigate(['recipe-list']);
+        },
+        error => {
+          alert(JSON.stringify(error));
+        }
+      )
+    }
   }
 
   ngOnDestroy() {

@@ -1,11 +1,13 @@
 <div class="col-md-12 container">
+    <a class="btn btn-success bg-success m-2 float-right" role="button" routerLink='/recipe-create'>Nieuw recept invoeren</a>
   <h2>Recepten Overzicht</h2>
-
+  
   <form>
     <div class="form-group form-inline">
       Op tekst zoeken: <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="recipeTableService.searchTerm"/>
       <span class="ml-3" *ngIf="recipeTableService.loading$ | async">Laden...</span>
     </div>
+    
     <table class="table table-striped">
       <thead>
         <tr>

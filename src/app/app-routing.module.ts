@@ -26,6 +26,7 @@ const routes: Routes = [
   {path: 'recipe-list', component: RecipeListComponent},
   {path: 'recipe-detail', component: RecipeDetailComponent},
   {path: 'recipe-edit', component: RecipeEditComponent},
+  {path: 'recipe-create', component: RecipeEditComponent},
   {path: 'measure-unit-list', component: MeasureUnitListComponent},
   {path: 'ingredient-name-list', component: IngredientNameListComponent},
   {path: 'settings', component: SettingsComponent},
