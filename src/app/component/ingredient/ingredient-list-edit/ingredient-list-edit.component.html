@@ -1,3 +1,4 @@
+<button type="button" class="btn btn-success bg-success m-2" (click)="addIngredient()">Ingrediënt toevoegen</button>
 <div [formGroup]="ingredientsForm">
   <div formArrayName="ingredients"> 
     <table class="table table-sm item-hl">
@@ -7,25 +8,34 @@
           <th>Eenheid</th>
           <th>Ingrediënt</th>
           <th>Voorraad</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let ingredient of ingredients; let i = index;" [formGroupName]="i">
-            <td><input type="number" class="form-control" formControlName="amount"></td>
+            <td>
+              <input type="number" class="form-control" formControlName="amount">
+            </td>
             <td>
               <measure-unit-select
                 [measureUnit]="ingredient.measureUnit" 
-                (valueChange)="updateMeasureUnit($event, ingredient)">
+                (valueChange)="updateMeasureUnit($event, i)">
               </measure-unit-select>
             </td>
             <td>
               <ingredient-name-select
                 [ingredientName]="ingredient.name"
-                (valueChange)="updateIngredientName($event, ingredient)">
+                (valueChange)="updateIngredientName($event, i)">
               </ingredient-name-select>
             </td>
             <td>
               <input type="checkbox" formControlName="stock" class="form-control">
+            </td>
+            <td>
+              <button 
+                type="button" 
+                class="btn btn-success bg-success m-2" 
+                (click)="removeIngredient(i)">Verwijderen</button>
             </td>
         </tr>
       </tbody>
