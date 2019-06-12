@@ -28,6 +28,10 @@ export class RecipeService {
     return this.http.put<any>(this.baseUrl + 'recipe/update', recipe);
   }
 
+  updateRecipeImage(recipeId, imageName) {
+    return this.http.put<any>(this.baseUrl + 'recipe/' + recipeId + '/update-image', imageName);
+  }
+
   createRecipe(recipe: Recipe) {
     return this.http.post<any>(this.baseUrl + 'recipe/create', recipe);
   }

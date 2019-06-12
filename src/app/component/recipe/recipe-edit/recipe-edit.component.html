@@ -1,8 +1,8 @@
 <div *ngIf="recipe" class="col-md-10 container mt-2 float-left">
-  <h2>Recept wijzigen</h2>
+  <h2>Recept wijzigen</h2>  
   <form [formGroup]="recipeForm" (ngSubmit)="onEdit()">
-
-    <div class="form-group row">
+      
+      <div class="form-group row">
       <label class="col-sm-2 col-form-label">Recept naam:</label>
       <div class="col-sm-10">
         <input type="text" class="form-control" formControlName="name" autocomplete="off">
@@ -111,13 +111,7 @@
         </div>
     </div>
 
-    <button class="btn btn-primary my-3">Wijzigingen opslaan</button>
+        <button class="btn btn-primary my-3">Wijzigingen opslaan</button>
+
   </form>
 </div>
-
-
-<!-- Image moet nog aan de form worden toegevoegd. De procedure om afbeeldingen toe te voegen moet eerst duidelijk worden
-
-<div class="col-md-6">
-  <img [attr.src]="baseUrl + 'recipe/get-image?name=' + recipe.image" style=" max-height: 300px;">
-</div> -->

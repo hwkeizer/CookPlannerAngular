@@ -3,10 +3,9 @@ import { environment } from 'src/environments/environment';
 import { RecipeDataService } from 'src/app/data/recipe/recipe-data.service';
 import { Subscription } from 'rxjs';
 import { Recipe } from 'src/app/model/Recipe';
-import { Tag } from 'src/app/model/Tag';
 import { Router } from '@angular/router';
-import { routerNgProbeToken } from '@angular/router/src/router_module';
 import { RecipeService } from 'src/app/service/recipe/recipe.service';
+import { ImageService } from 'src/app/service/image/image.service';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -15,6 +14,8 @@ import { RecipeService } from 'src/app/service/recipe/recipe.service';
 })
 export class RecipeDetailComponent implements OnInit, OnDestroy {
 
+  editImage = false;
+  imageUploadList: string[];
   baseUrl = environment.serverUrl; // Needed for image URL in html
   private _recipeSubscription: Subscription
   recipe: Recipe;
@@ -22,6 +23,7 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
   constructor(
     private recipeDataService: RecipeDataService,
     private recipeService: RecipeService,
+    private imageService: ImageService,
     private router: Router) { }
 
   concatTags() {
@@ -42,6 +44,24 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
         // this.recipe.concatTags = concatTags(this.recipe.tags);
       }
     )
+  }
+
+  setEditImage() {
+    this.imageService.getImageList().subscribe(
+      data => {
+        this.imageUploadList = data;
+      }
+    )
+    this.editImage = true;
+  }
+
+  setNewImage(imageName, recipeId) {
+    this.recipeService.updateRecipeImage(recipeId, imageName).subscribe(
+      data => {
+        this.recipe.image = data.result;
+      }
+    )
+    this.editImage = false;    
   }
 
   deleteRecipe(recipe: Recipe) {    

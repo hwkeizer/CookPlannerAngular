@@ -18,7 +18,7 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
   recipeForm: FormGroup;
   baseUrl = environment.serverUrl; // Needed for image URL in html
   private _recipeSubscription: Subscription;
-  recipe: Recipe;
+  recipe: Recipe
 
   constructor(
     private formBuilder: FormBuilder,
@@ -29,7 +29,7 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
   ngOnInit() {    
     this._recipeSubscription = this.recipeDataService.recipe.subscribe(
       data => {
-        if (data.id !== undefined) {
+        if (data && data.id !== undefined) {
           this.recipe = data;
         } else {
           this.recipe = new Recipe();
