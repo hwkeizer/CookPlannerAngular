@@ -14,6 +14,7 @@ import { RecipeDetailComponent } from './component/recipe/recipe-detail/recipe-d
 import { RecipeEditComponent } from './component/recipe/recipe-edit/recipe-edit.component';
 import { MeasureUnitListComponent } from './component/measure-unit/measure-unit-list/measure-unit-list.component';
 import { IngredientNameListComponent } from './component/ingredient-name/ingredient-name-list/ingredient-name-list.component';
+import { MeasureUnitCreateComponent } from './component/measure-unit/measure-unit-create/measure-unit-create.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path: 'recipe-edit', component: RecipeEditComponent},
   {path: 'recipe-create', component: RecipeEditComponent},
   {path: 'measure-unit-list', component: MeasureUnitListComponent},
+  {path: 'measure-unit-create', component: MeasureUnitCreateComponent},
   {path: 'ingredient-name-list', component: IngredientNameListComponent},
   {path: 'settings', component: SettingsComponent},
 ];

@@ -21,4 +21,21 @@ export class MeasureUnitListComponent implements OnInit {
     )
   }
 
+  deleteMeasureUnit(measureUnit) {
+    this.measureUnitService.deleteMeasureUnit(measureUnit).subscribe(
+      data => {
+        this.measureUnits.splice(this.measureUnits.indexOf(measureUnit), 1);
+      },
+      error => {
+        console.log('Foutmelding', error.error.status, error.error.message);
+      }
+    )
+  }
+
+  // editMeasureUnit(account) {
+  //   window.sessionStorage.removeItem("editAccount");
+  //   window.sessionStorage.setItem("editAccount", JSON.stringify(account));
+  //   this.router.navigate(['account-edit']);
+  // }
+
 }

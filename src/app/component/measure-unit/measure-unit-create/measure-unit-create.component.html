@@ -1,0 +1,27 @@
+<div class="col-md-8 container">
+  <h3 class="text-left my-3">Nieuwe maateenheid</h3>
+  <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-row">
+      <div class="form-group col-md-5 required">
+        <label for="name">Naam:</label>
+        <input type="text" class="form-control" formControlName="name" autocomplete="off">
+        <div *ngIf="name.invalid && (name.dirty || name.touched || submitted)" class="alert alert-danger mt-1">
+          <div *ngIf="name.errors.required">Naam voor maateenheid is vereist...</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-5 required">
+        <label for="pluralName">Meervoudsnaam:</label>
+        <input type="pluralName" class="form-control" formControlName="pluralName" autocomplete="off">
+        <div *ngIf="pluralName.invalid && (pluralName.dirty || pluralName.touched || submitted)" class="alert alert-danger mt-1">
+          <div *ngIf="pluralName.errors.required">Meervoudsnaam voor maateenheid is vereist...</div>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary">Creeer maateenheid</button>
+  </form>
+</div>

@@ -28,6 +28,7 @@ import { MeasureUnitListComponent } from './component/measure-unit/measure-unit-
 import { MeasureUnitEditComponent } from './component/ingredient/ingredient-list-edit/measure-unit-select/measure-unit-select.component';
 import { IngredientNameEditComponent } from './component/ingredient/ingredient-list-edit/ingredient-name-select/ingredient-name-select.component';
 import { IngredientNameListComponent } from './component/ingredient-name/ingredient-name-list/ingredient-name-list.component';
+import { MeasureUnitCreateComponent } from './component/measure-unit/measure-unit-create/measure-unit-create.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { IngredientNameListComponent } from './component/ingredient-name/ingredi
     MeasureUnitEditComponent,
     IngredientNameEditComponent,
     IngredientNameListComponent,
+    MeasureUnitCreateComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,9 @@
       <th>Id</th>
       <th>Naam</th>
       <th>Meervoudsnaam</th>
+      <th>
+        <button class="btn btn-primary m-1" routerLink="/measure-unit-create">Maateenheid toevoegen</button>
+      </th>
     </tr>
   </thead>
   <tbody>
@@ -11,6 +14,9 @@
       <td>{{measureUnit.id}}</td>
       <td>{{measureUnit.name}}</td>
       <td>{{measureUnit.pluralName}}</td>
+      <td><button class="btn btn-danger m-1" (click)="deleteMeasureUnit(measureUnit)">Verwijderen</button>
+        <button class="btn btn-primary m-1" (click)="editMeasureUnit(measureUnit)">Wijzigen</button>
+      </td>
     </tr>
   </tbody>
 </table>

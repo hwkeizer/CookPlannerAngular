@@ -26,6 +26,11 @@ export class MeasureUnitDataService {
     this._measureUnits.next(measureUnitList);
   }
 
+  addMeasureUnit(measureUnit: MeasureUnit) {
+    this._measureUnits.value.push(measureUnit);
+    this._measureUnits.next(this._measureUnits.value);
+  }
+
   syncMeasureUnits() {
     this.measureUnitService.getMeasureUnitList().subscribe(
       data => {
