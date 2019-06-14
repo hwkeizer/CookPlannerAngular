@@ -14,8 +14,13 @@
       <td>{{measureUnit.id}}</td>
       <td>{{measureUnit.name}}</td>
       <td>{{measureUnit.pluralName}}</td>
-      <td><button class="btn btn-danger m-1" (click)="deleteMeasureUnit(measureUnit)">Verwijderen</button>
-        <button class="btn btn-primary m-1" (click)="editMeasureUnit(measureUnit)">Wijzigen</button>
+      <td>
+        <a (click)="editMeasureUnit(measureUnit)">
+          <img class="mx-3" src="assets/images/edit-icon.png" alt="edit-icon">
+        </a>
+        <a (click)="deleteMeasureUnit(measureUnit)">
+          <img class="mx-3" src="assets/images/delete-icon.png" alt="delete-icon">
+        </a>        
       </td>
     </tr>
   </tbody>

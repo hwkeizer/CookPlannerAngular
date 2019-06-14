@@ -26,6 +26,16 @@ export class IngredientNameDataService {
     this._ingredientNames.next(ingredientNames);
   }
 
+  addIngredientName(ingredientName: IngredientName) {
+    this._ingredientNames.value.push(ingredientName);
+    this._ingredientNames.next(this._ingredientNames.value);
+  }
+
+  deleteIngredientName(ingredientName: IngredientName) {
+    this._ingredientNames.value.splice(this._ingredientNames.value.indexOf(ingredientName), 1);
+    this._ingredientNames.next(this._ingredientNames.value);
+  }
+
   syncIngredientNames() {
     this.ingredientNameService.getIngredientNameList().subscribe(
       data => {

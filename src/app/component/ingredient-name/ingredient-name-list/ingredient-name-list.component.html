@@ -4,6 +4,9 @@
       <th>Id</th>
       <th>Naam</th>
       <th>Meervoudsnaam</th>
+      <th>
+        <button class="btn btn-primary m-1" routerLink="/ingredient-name-create">Ingredientnaam toevoegen</button>
+      </th>
     </tr>
   </thead>
   <tbody>
@@ -11,6 +14,14 @@
       <td>{{ingredientName.id}}</td>
       <td>{{ingredientName.name}}</td>
       <td>{{ingredientName.pluralName}}</td>
+      <td>
+        <a (click)="editIngredientName(ingredientName)">
+          <img class="mx-3" src="assets/images/edit-icon.png" alt="edit-icon">
+        </a>
+        <a (click)="deleteIngredientName(ingredientName)">
+          <img class="mx-3" src="assets/images/delete-icon.png" alt="delete-icon">
+        </a>
+      </td>
     </tr>
   </tbody>
 </table>

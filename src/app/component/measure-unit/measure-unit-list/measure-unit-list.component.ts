@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MeasureUnitService } from 'src/app/service/measure-unit/measure-unit.service';
 import { MeasureUnit } from 'src/app/model/MeasureUnit';
+import { MeasureUnitDataService } from 'src/app/data/measure-unit/measure-unit-data.service';
 
 @Component({
   selector: 'measure-unit-list',
@@ -11,7 +12,9 @@ export class MeasureUnitListComponent implements OnInit {
 
   measureUnits: MeasureUnit[];
 
-  constructor(private measureUnitService: MeasureUnitService) {}
+  constructor(
+    private measureUnitService: MeasureUnitService,
+    private measureUnitDataService: MeasureUnitDataService) {}
 
   ngOnInit() {
     this.measureUnitService.getMeasureUnitList().subscribe(
@@ -23,7 +26,8 @@ export class MeasureUnitListComponent implements OnInit {
 
   deleteMeasureUnit(measureUnit) {
     this.measureUnitService.deleteMeasureUnit(measureUnit).subscribe(
-      data => {
+      data => { 
+        this.measureUnitDataService.deleteMeasureUnit(measureUnit);
         this.measureUnits.splice(this.measureUnits.indexOf(measureUnit), 1);
       },
       error => {
@@ -32,10 +36,8 @@ export class MeasureUnitListComponent implements OnInit {
     )
   }
 
-  // editMeasureUnit(account) {
-  //   window.sessionStorage.removeItem("editAccount");
-  //   window.sessionStorage.setItem("editAccount", JSON.stringify(account));
-  //   this.router.navigate(['account-edit']);
-  // }
+  editMeasureUnit(measureUnit) {
+    console.log('Wijzigen maateenheid nog niet geimplementeerd: ', measureUnit);
+  }
 
 }

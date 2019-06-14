@@ -40,8 +40,8 @@ export class MeasureUnitCreateComponent implements OnInit {
     this.measureUnit = this.createForm.value;
     this.measureUnitService.createMeasureUnit(this.measureUnit).subscribe(
       data => {
-        this.router.navigate(['measure-unit-list']);
         this.measureUnitDataService.addMeasureUnit(data.result);
+        this.router.navigate(['measure-unit-list']);
       },
       error => {
         console.log('Foutmelding:', error.error.status, error.error.message)

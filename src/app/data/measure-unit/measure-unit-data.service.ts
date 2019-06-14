@@ -31,6 +31,11 @@ export class MeasureUnitDataService {
     this._measureUnits.next(this._measureUnits.value);
   }
 
+  deleteMeasureUnit(measureUnit: MeasureUnit) {
+    this._measureUnits.value.splice(this._measureUnits.value.indexOf(measureUnit), 1);
+    this._measureUnits.next(this._measureUnits.value);
+  }
+
   syncMeasureUnits() {
     this.measureUnitService.getMeasureUnitList().subscribe(
       data => {
