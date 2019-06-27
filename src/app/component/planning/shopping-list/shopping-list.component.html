@@ -1,0 +1,38 @@
+<div class="col-md-5 mt-5 float-left">
+  <h2>Boodschappenlijst</h2>
+  <table class="table table-sm item-hl">
+    <thead>
+      <tr>
+        <th>Hoeveelheid</th>
+        <th>Maateenheid</th>
+        <th>Ingredient</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let shoppingLine of shoppingList; let i = index;">
+          <td>{{shoppingLine.amount}}</td>
+          <td>{{shoppingLine.amount >= 2 ? shoppingLine.measureUnitPlural : (shoppingLine.measureUnit == "@" ? '' : shoppingLine.measureUnit)}}</td>
+          <td>{{shoppingLine.amount >= 2 ? shoppingLine.ingredientPlural : shoppingLine.ingredient}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="col-md-5 mt-5 float-right">
+  <h2>Voorraad check</h2>
+  <table class="table table-sm item-hl">
+    <thead>
+      <tr>
+        <th>Hoeveelheid</th>
+        <th>Maateenheid</th>
+        <th>Ingredient</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let shoppingLine of shoppingListStock; let i = index;">
+          <td>{{shoppingLine.amount}}</td>
+          <td>{{shoppingLine.amount >= 2 ? shoppingLine.measureUnitPlural : (shoppingLine.measureUnit == "@" ? '' : shoppingLine.measureUnit)}}</td>
+          <td>{{shoppingLine.amount >= 2 ? shoppingLine.ingredientPlural : shoppingLine.ingredient}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

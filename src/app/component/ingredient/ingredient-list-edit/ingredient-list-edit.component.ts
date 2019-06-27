@@ -38,7 +38,7 @@ export class IngredientListEditComponent implements OnInit {
     const formGroup = this.formBuilder.group({
       id: [ingredient.id || ''],
       name: [ingredient.name || ''],
-      amount: [ingredient.amount || '', Validators.required],
+      amount: [ingredient.amount || ''],
       stock: [ingredient.stock || ''],
       measureUnit: [ingredient.measureUnit || '']
     });

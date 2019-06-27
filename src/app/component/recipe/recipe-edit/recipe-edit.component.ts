@@ -58,10 +58,13 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
   }
 
   onEdit() {
+    console.log('Recipe change submitted')
     this.submitted = true;
     if (this.recipeForm.invalid) {
+      console.log('Form not ok')
       return;
-    }    
+    }  
+    console.log('Form ok, processing...')  
 
     //Next two lines work (database is updated) but the view does not get updated???
     // this.recipe = this.editForm.value;
@@ -80,7 +83,7 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
     this.recipe.preparations = this.recipeForm.get('preparations').value;
     this.recipe.directions = this.recipeForm.get('directions').value;
     this.recipe.rating = this.recipeForm.get('rating').value;
-    console.log("FORM SUBMIT: ", this.recipeForm.value)
+    console.log("Submitted form: ", this.recipeForm.value)
 
     // Lot of duplicate code here!
     if (this.recipe.id) {

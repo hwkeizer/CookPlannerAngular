@@ -4,6 +4,7 @@
     <a class="btn btn-success bg-success m-2" role="button" routerLink='/recipe-edit'>Recept wijzigen</a>
     <a *ngIf="!recipe.image" class="btn btn-success bg-success m-2" (click)="setEditImage()">Afbeelding toevoegen</a>
     <a *ngIf="recipe.image" class="btn btn-success bg-success m-2" (click)="setEditImage()">Afbeelding wijzigen</a>
+    <a class="btn btn-primary bg-primary m-2" role="button" (click)="addToPlanning(recipe)">Aan planning toevoegen</a>
     <a class="btn btn-danger bg-danger m-2" role="button" (click)="deleteRecipe(recipe)">Recept verwijderen</a>
   </div>
   <div class="row justify-content-center">

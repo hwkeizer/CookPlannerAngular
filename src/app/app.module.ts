@@ -30,6 +30,8 @@ import { IngredientNameEditComponent } from './component/ingredient/ingredient-l
 import { IngredientNameListComponent } from './component/ingredient-name/ingredient-name-list/ingredient-name-list.component';
 import { MeasureUnitCreateComponent } from './component/measure-unit/measure-unit-create/measure-unit-create.component';
 import { IngredientNameCreateComponent } from './component/ingredient-name/ingredient-name-create/ingredient-name-create.component';
+import { PlanningOverviewComponent } from './component/planning/planning-overview/planning-overview.component';
+import { ShoppingListComponent } from './component/planning/shopping-list/shopping-list.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,8 @@ import { IngredientNameCreateComponent } from './component/ingredient-name/ingre
     IngredientNameListComponent,
     MeasureUnitCreateComponent,
     IngredientNameCreateComponent,
+    PlanningOverviewComponent,
+    ShoppingListComponent,
   ],
   imports: [
     BrowserModule,

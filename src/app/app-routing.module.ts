@@ -16,6 +16,7 @@ import { MeasureUnitListComponent } from './component/measure-unit/measure-unit-
 import { IngredientNameListComponent } from './component/ingredient-name/ingredient-name-list/ingredient-name-list.component';
 import { MeasureUnitCreateComponent } from './component/measure-unit/measure-unit-create/measure-unit-create.component';
 import { IngredientNameCreateComponent } from './component/ingredient-name/ingredient-name-create/ingredient-name-create.component';
+import { PlanningOverviewComponent } from './component/planning/planning-overview/planning-overview.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path: 'recipe-detail', component: RecipeDetailComponent},
   {path: 'recipe-edit', component: RecipeEditComponent},
   {path: 'recipe-create', component: RecipeEditComponent},
+  {path: 'planning-overview', component: PlanningOverviewComponent},
   {path: 'measure-unit-list', component: MeasureUnitListComponent},
   {path: 'measure-unit-create', component: MeasureUnitCreateComponent},
   {path: 'ingredient-name-list', component: IngredientNameListComponent},

@@ -6,6 +6,7 @@ import { Recipe } from 'src/app/model/Recipe';
 import { Router } from '@angular/router';
 import { RecipeService } from 'src/app/service/recipe/recipe.service';
 import { ImageService } from 'src/app/service/image/image.service';
+import { PlanningService } from 'src/app/service/planning/planning.service';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -23,6 +24,7 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
   constructor(
     private recipeDataService: RecipeDataService,
     private recipeService: RecipeService,
+    private planningService: PlanningService,
     private imageService: ImageService,
     private router: Router) { }
 
@@ -62,6 +64,15 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
       }
     )
     this.editImage = false;    
+  }
+
+  addToPlanning(recipe: Recipe) {
+    
+    this.planningService.addPlanning(recipe).subscribe(
+      data => {
+        console.log("Planning: ", recipe)
+      }
+    )
   }
 
   deleteRecipe(recipe: Recipe) {    

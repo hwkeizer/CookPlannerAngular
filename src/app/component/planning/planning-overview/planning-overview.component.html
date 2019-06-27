@@ -1,0 +1,35 @@
+<button type="button" class="btn btn-success bg-success m-3" (click)="addEmptyPlanning()">Lege planning toevoegen</button>
+<form *ngIf="planningForm">
+<div [formGroup]="planningForm">
+  <div formArrayName="planBoard"> 
+    <table class="table table-sm item-hl">
+      <thead>
+        <tr>
+          <th>Datum</th>
+          <th>Weekdag</th>
+          <th>Receptnaam</th>
+          <th>Aantal personen</th>
+          <th>Op boodschappenlijst</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let planning of planBoard; let i = index;" [formGroupName]="i">
+          <td>{{planning.date}}</td>
+          <td>{{getDayOfWeek(planning.date)}}</td>
+          <td>{{planning.name}}</td>
+          <td>{{planning.servings}}</td>
+          <td><input type="checkbox" formControlName="onShoppingList" class="form-control" (change)="toggleOnShoppingList(planning)"></td>
+          <td>
+              <a  
+                (click)="removePlanning(planning)">
+                <img class="mx-3" src="assets/images/delete-icon.png" alt="delete-icon"></a>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</form>
+<shopping-list *ngIf="planBoard" [planBoard]="planBoard">
+</shopping-list>

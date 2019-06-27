@@ -10,7 +10,7 @@
   <tbody>
     <tr *ngFor="let ingredient of ingredients">
       <td>{{ingredient.amount}}</td>
-      <td>{{ingredient.amount >= 2 ? ingredient.measureUnit.pluralName : ingredient.measureUnit.name}}</td>
+      <td>{{ingredient.amount >= 2 ? ingredient.measureUnit.pluralName : (ingredient.measureUnit.name == "@" ? '' : ingredient.measureUnit.name)}}</td>
       <td>{{ingredient.amount >= 2 ? ingredient.name.pluralName : ingredient.name.name}}</td>
       <td>{{ingredient.stock == true ? 'Ja' : 'Nee'}}</td>
     </tr>
