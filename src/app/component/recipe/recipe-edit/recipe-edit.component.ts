@@ -37,7 +37,7 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
         this.recipeForm = this.formBuilder.group({
           id: [''],
           name: ['', Validators.required],
-          description: [''],
+          servingTips: [''],
           notes: [''],
           preparationTime: ['', Validators.min(0)],
           cookTime: ['', Validators.min(0)],
@@ -73,7 +73,7 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
     // When assigning each field seperately the view gets updated correctly...
     // This is noted as a bug and needs investigation
     this.recipe.name = this.recipeForm.get('name').value;
-    this.recipe.description = this.recipeForm.get('description').value;
+    this.recipe.servingTips = this.recipeForm.get('servingTips').value;
     this.recipe.notes = this.recipeForm.get('notes').value;
     this.recipe.ingredients = this.recipeForm.get('ingredientsForm.ingredients').value
     this.recipe.recipeType = this.recipeForm.get('recipeTypeForm.recipeType').value;
@@ -112,7 +112,7 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
   }
 
   get name() {return this.recipeForm.get('name');}
-  get description() {return this.recipeForm.get('description');}
+  get servingTips() {return this.recipeForm.get('servingTips');}
   get preparationTime() {return this.recipeForm.get('preparationTime');}
   get cookTime() {return this.recipeForm.get('cookTime');}
   get servings() {return this.recipeForm.get('servings');}

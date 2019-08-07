@@ -4,7 +4,7 @@ import { Tag } from './Tag';
 export class Recipe {
     id: number;
     name: string;
-    description: string;
+    servingTips: string;
     notes: string;
     ingredients = <Ingredient[]>Array();
     image: string;
