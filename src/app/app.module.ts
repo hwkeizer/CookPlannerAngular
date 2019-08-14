@@ -32,6 +32,8 @@ import { MeasureUnitCreateComponent } from './component/measure-unit/measure-uni
 import { IngredientNameCreateComponent } from './component/ingredient-name/ingredient-name-create/ingredient-name-create.component';
 import { PlanningOverviewComponent } from './component/planning/planning-overview/planning-overview.component';
 import { ShoppingListComponent } from './component/planning/shopping-list/shopping-list.component';
+import { AlertComponent } from './component/alert/alert.component';
+import { AlertService } from './service/alert/alert.service';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,7 @@ import { ShoppingListComponent } from './component/planning/shopping-list/shoppi
     IngredientNameCreateComponent,
     PlanningOverviewComponent,
     ShoppingListComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,7 +79,8 @@ import { ShoppingListComponent } from './component/planning/shopping-list/shoppi
       useClass: TokenInterceptor,
       multi: true
     },
-    RecipeDataService
+    RecipeDataService,
+    AlertService
   ],
   bootstrap: [AppComponent]
 })
