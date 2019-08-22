@@ -7,6 +7,7 @@ import { RecipeTableService } from 'src/app/service/recipe/recipe-table.service'
 import { DecimalPipe } from '@angular/common';
 import { Observable } from 'rxjs';
 import { RecipeDataService } from 'src/app/data/recipe/recipe-data.service';
+import { Tag } from 'src/app/model/Tag';
 
 
 @Component({
@@ -44,7 +45,6 @@ export class RecipeListComponent implements OnInit {
   }
 
   onSort({column, direction}: SortEvent) {
-
     // resetting other headers
     this.headers.forEach(header => {
       if (header.sortable !== column) {

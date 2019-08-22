@@ -7,6 +7,7 @@ import { SortDirection } from 'src/app/directive/sortable.directive';
 import { Recipe } from 'src/app/model/Recipe';
 import { Observable, of, BehaviorSubject, Subject } from 'rxjs';
 import { tap, debounceTime, switchMap, delay } from 'rxjs/operators';
+import { Tag } from 'src/app/model/Tag';
 
 
 interface SearchResult {
@@ -37,12 +38,21 @@ function sort(recipes: Recipe[], column: string, direction: string): Recipe[] {
   }
 }
 
+// Transforms tags array to a readable, comma seperated string
+function getTagString(tags: Tag[]): string {
+  let tagNames: string[] = [];
+  tags.forEach(tag => {
+    tagNames.push(tag.name);
+  })
+  return tagNames.join(", ");
+}
+
 function matches(recipe: Recipe, term: string, pipe: PipeTransform) {
   return recipe.name.toLowerCase().includes(term.toLowerCase())
     || recipe.recipeType.toLowerCase().includes(term.toLowerCase()) 
-    || pipe.transform(recipe.preparationTime).includes(term) 
+    || getTagString(recipe.tags).toLowerCase().includes(term.toLowerCase()) 
     || pipe.transform(recipe.cookTime).includes(term)
-    || pipe.transform(recipe.rating).includes(term);
+    || pipe.transform(recipe.rating).includes(term);    
 }
 
 @Injectable({
@@ -93,6 +103,9 @@ export class RecipeTableService {
   set sortColumn(sortColumn: string) { this._set({sortColumn}); }
   set sortDirection(sortDirection: SortDirection) { this._set({sortDirection}); }
   
+  getTagString(tags: Tag[]): string {
+    return getTagString(tags);
+  }
 
   private _set(patch: Partial<TableState>) {
     Object.assign(this._tableState, patch);
