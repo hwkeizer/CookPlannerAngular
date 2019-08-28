@@ -8,6 +8,7 @@ import { DecimalPipe } from '@angular/common';
 import { Observable } from 'rxjs';
 import { RecipeDataService } from 'src/app/data/recipe/recipe-data.service';
 import { Tag } from 'src/app/model/Tag';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -22,6 +23,7 @@ export class RecipeListComponent implements OnInit {
   total$: Observable<number>;
 
   recipes: Recipe[];
+  baseUrl = environment.serverUrl; // Needed for image URL in html
 
   @ViewChildren(NgbdSortableHeader) headers: QueryList<NgbdSortableHeader>;
 

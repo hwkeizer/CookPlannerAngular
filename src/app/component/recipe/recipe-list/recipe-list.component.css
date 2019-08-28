@@ -1,0 +1,4 @@
+/* remove padding arround the image in the list view */
+.table .no-padding {
+    padding: 0;
+}

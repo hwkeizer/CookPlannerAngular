@@ -13,8 +13,8 @@
         <tr>
           <th sortable="name" scope="col" (sort)="onSort($event)">Naam</th>
           <th sortable="recipeType" scope="col" (sort)="onSort($event)">Recepttype</th>
-          <th sortable="categories" scope="col">Categorieën</th>
-          <th sortable="cookTime" scope="col" (sort)="onSort($event)">Bereidingstijd</th>
+          <th scope="col">Categorieën</th>
+          <th scope="col">Afbeelding</th>
           <th sortable="rating" scope="col" (sort)="onSort($event)">Waardering</th>
         </tr>
       </thead>
@@ -23,7 +23,11 @@
           <td>{{recipe.name}}</td>
           <td>{{recipe.recipeType}}</td>
           <td>{{recipeTableService.getTagString(recipe.tags)}}</td>
-          <td>{{recipe.cookTime}}</td>
+          <td class="no-padding">
+            <div *ngIf="!editImage && recipe.image" class="col-md-6">
+              <img [attr.src]="baseUrl + 'image/?name=' + recipe.image"  style=" max-height: 60px; max-width: 60px;">
+            </div>
+          </td>
           <td>{{recipe.rating}}</td>
         </tr>
       </tbody>
