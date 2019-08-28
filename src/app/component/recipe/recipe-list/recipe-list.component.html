@@ -14,7 +14,6 @@
           <th sortable="name" scope="col" (sort)="onSort($event)">Naam</th>
           <th sortable="recipeType" scope="col" (sort)="onSort($event)">Recepttype</th>
           <th sortable="categories" scope="col">Categorieën</th>
-          <!-- <th sortable="preparationTime" scope="col" (sort)="onSort($event)">Voorbereidingstijd</th> -->
           <th sortable="cookTime" scope="col" (sort)="onSort($event)">Bereidingstijd</th>
           <th sortable="rating" scope="col" (sort)="onSort($event)">Waardering</th>
         </tr>
@@ -24,7 +23,6 @@
           <td>{{recipe.name}}</td>
           <td>{{recipe.recipeType}}</td>
           <td>{{recipeTableService.getTagString(recipe.tags)}}</td>
-          <!-- <td>{{recipe.preparationTime}}</td> -->
           <td>{{recipe.cookTime}}</td>
           <td>{{recipe.rating}}</td>
         </tr>
@@ -39,10 +37,10 @@
       </ngb-pagination>
 
       <select class="custom-select" style="width: auto" name="pageSize" [(ngModel)]="recipeTableService.pageSize">
-        <option [ngValue]="1">1 recept per pagina</option>
-        <option [ngValue]="2">2 recepten per pagina</option>
-        <option [ngValue]="4">4 recepten per pagina</option>
-        <option [ngValue]="6">6 recepten per pagina</option>
+        <option [ngValue]="25">25 recept per pagina</option>
+        <option [ngValue]="50">50 recepten per pagina</option>
+        <option [ngValue]="100">100 recepten per pagina</option>
+        <option [ngValue]="100000">Alle recepten</option>
       </select>
     </div>
   </form>

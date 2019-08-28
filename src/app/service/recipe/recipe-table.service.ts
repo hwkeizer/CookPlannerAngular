@@ -68,7 +68,7 @@ export class RecipeTableService {
 
   private _tableState: TableState = {
     page: 1,
-    pageSize: 4,
+    pageSize: 25,
     searchTerm: '',
     sortColumn: '',
     sortDirection: ''
