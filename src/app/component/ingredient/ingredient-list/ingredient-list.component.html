@@ -12,7 +12,7 @@
       <td>{{ingredient.amount}}</td>
       <td>{{ingredient.amount >= 2 ? ingredient.measureUnit.pluralName : (ingredient.measureUnit.name == "@" ? '' : ingredient.measureUnit.name)}}</td>
       <td>{{ingredient.amount >= 2 ? ingredient.name.pluralName : ingredient.name.name}}</td>
-      <td>{{ingredient.stock == true ? 'Ja' : 'Nee'}}</td>
+      <td>{{ingredient.name.stock == true ? 'Ja' : 'Nee'}}</td>
     </tr>
   </tbody>
 </table>

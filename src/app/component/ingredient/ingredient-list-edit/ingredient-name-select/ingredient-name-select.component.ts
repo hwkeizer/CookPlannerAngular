@@ -13,7 +13,7 @@ import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
   templateUrl: './ingredient-name-select.component.html',
   styleUrls: ['./ingredient-name-select.component.css']
 })
-export class IngredientNameEditComponent implements OnInit, OnDestroy {
+export class IngredientNameSelectComponent implements OnInit, OnDestroy {
 
   @Input() ingredientName: IngredientName;
   @Output() valueChange: EventEmitter<IngredientName> = new EventEmitter<IngredientName>();

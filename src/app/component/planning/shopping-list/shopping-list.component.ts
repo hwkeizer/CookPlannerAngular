@@ -33,7 +33,7 @@ export class ShoppingListComponent implements OnInit {
         i.measureUnit.pluralName,
         i.name.name,
         i.name.pluralName,
-        i.stock
+        i.name.stock
       ))}
     )      
   }
@@ -43,6 +43,8 @@ export class ShoppingListComponent implements OnInit {
   ngOnInit() {
   }
 
+  // Add ingredient to the shoppinglist or stocklist. If a simular ingredient already exists only the amount
+  // will be added to the existing line
   addToShoppingLists(s: ShoppingListLine) {
     if (s.stock) {
       let line = this.getSimularLine(s, this.shoppingListStock);

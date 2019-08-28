@@ -1,13 +1,13 @@
 <div class="col-md-8 container">
-  <h3 class="text-left my-3">Nieuwe ingredientnaam</h3>
-  <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+  <h3 class="text-left my-3">Ingrediëntnaam wijzigen</h3>
+  <form [formGroup]="editForm" (ngSubmit)="onEdit()">
 
     <div class="form-row">
       <div class="form-group col-md-5 required">
         <label for="name">Naam:</label>
         <input type="text" class="form-control" formControlName="name" autocomplete="off">
         <div *ngIf="name.invalid && (name.dirty || name.touched || submitted)" class="alert alert-danger mt-1">
-          <div *ngIf="name.errors.required">Naam voor ingredientnaam is vereist...</div>
+          <div *ngIf="name.errors.required">Naam voor ingrediëntnaam is vereist...</div>
         </div>
       </div>
     </div>
@@ -17,18 +17,18 @@
         <label for="pluralName">Meervoudsnaam:</label>
         <input type="pluralName" class="form-control" formControlName="pluralName" autocomplete="off">
         <div *ngIf="pluralName.invalid && (pluralName.dirty || pluralName.touched || submitted)" class="alert alert-danger mt-1">
-          <div *ngIf="pluralName.errors.required">Meervoudsnaam voor ingredientnaam is vereist...</div>
+          <div *ngIf="pluralName.errors.required">Meervoudsnaam voor ingrediëntnaam is vereist...</div>
         </div>
       </div>
     </div>
 
     <div class="form-row">
-      <div class="form-group col-md-5">
-        <label for="stock">Voorraad:</label>
-        <input type="checkbox" formControlName="stock" class="form-control">
-      </div>
+        <label class="col-sm-2 col-form-label" for="stock">Voorraad:</label>
+        <div class="col-sm-3">
+          <input type="checkbox" formControlName="stock" class="form-control">
+        </div>
     </div>
 
-    <button class="btn btn-primary">Creeer ingredientnaam</button>
+    <button class="btn btn-primary mt-4">Wijzig ingrediëntnaam</button>
   </form>
 </div>

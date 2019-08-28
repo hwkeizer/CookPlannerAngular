@@ -5,6 +5,5 @@ export class Ingredient {
     id: number;
     name: IngredientName;
     amount: number;
-    stock: boolean;
     measureUnit: MeasureUnit;
 }

@@ -4,6 +4,7 @@ import { IngredientName } from 'src/app/model/IngredientName';
 import { Router } from '@angular/router';
 import { IngredientNameService } from 'src/app/service/ingredient-name/ingredient-name.service';
 import { IngredientNameDataService } from 'src/app/data/ingredient-name/ingredient-name-data.service';
+import { AlertService, alertType } from 'src/app/service/alert/alert.service';
 
 @Component({
   selector: 'app-ingredient-name-create',
@@ -20,13 +21,15 @@ export class IngredientNameCreateComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private ingredientNameService: IngredientNameService,
-    private ingredientNameDataService: IngredientNameDataService) {}
+    private ingredientNameDataService: IngredientNameDataService,
+    private alertService: AlertService) {}
 
   ngOnInit() {
     this.createForm = this.formBuilder.group({
       id: [''],
       name: ['', Validators.required],
-      pluralName: ['', Validators.required]
+      pluralName: ['', Validators.required],
+      stock:['']
     });
   }
 
@@ -44,6 +47,7 @@ export class IngredientNameCreateComponent implements OnInit {
         
       },
       error => {
+        this.alertService.alert("Foutmelding " + error.error.status + " " + error.error.message, alertType.error);
         console.log('Foutmelding:', error.error.status, error.error.message)
         this.router.navigate(['ingredient-name-list']);
       }

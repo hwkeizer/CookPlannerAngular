@@ -13,7 +13,7 @@ import { debounceTime, map, distinctUntilChanged } from 'rxjs/operators';
   templateUrl: './measure-unit-select.component.html',
   styleUrls: ['./measure-unit-select.component.css']
 })
-export class MeasureUnitEditComponent implements OnInit, OnDestroy {
+export class MeasureUnitSelectComponent implements OnInit, OnDestroy {
 
   @Input() measureUnit: MeasureUnit;
   @Output() valueChange: EventEmitter<MeasureUnit> = new EventEmitter<MeasureUnit>();

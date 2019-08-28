@@ -7,7 +7,6 @@
           <th>Hoeveelheid</th>
           <th>Eenheid</th>
           <th>Ingrediënt</th>
-          <th>Voorraad</th>
           <th></th>
         </tr>
       </thead>
@@ -27,9 +26,6 @@
                 [ingredientName]="ingredient.name"
                 (valueChange)="updateIngredientName($event, i)">
               </ingredient-name-select>
-            </td>
-            <td>
-              <input type="checkbox" formControlName="stock" class="form-control">
             </td>
             <td>
               <button 

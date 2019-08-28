@@ -25,9 +25,10 @@ import { RecipeTagsComponent } from './component/recipe/recipe-edit/recipe-tags-
 import { IngredientsComponent } from './component/ingredient/ingredient-list/ingredient-list.component';
 import { IngredientListEditComponent } from './component/ingredient/ingredient-list-edit/ingredient-list-edit.component';
 import { MeasureUnitListComponent } from './component/measure-unit/measure-unit-list/measure-unit-list.component';
-import { MeasureUnitEditComponent } from './component/ingredient/ingredient-list-edit/measure-unit-select/measure-unit-select.component';
-import { IngredientNameEditComponent } from './component/ingredient/ingredient-list-edit/ingredient-name-select/ingredient-name-select.component';
+import { MeasureUnitSelectComponent } from './component/ingredient/ingredient-list-edit/measure-unit-select/measure-unit-select.component';
+import { IngredientNameSelectComponent } from './component/ingredient/ingredient-list-edit/ingredient-name-select/ingredient-name-select.component';
 import { IngredientNameListComponent } from './component/ingredient-name/ingredient-name-list/ingredient-name-list.component';
+import { IngredientNameEditComponent } from './component/ingredient-name/ingredient-name-edit/ingredient-name-edit.component';
 import { MeasureUnitCreateComponent } from './component/measure-unit/measure-unit-create/measure-unit-create.component';
 import { IngredientNameCreateComponent } from './component/ingredient-name/ingredient-name-create/ingredient-name-create.component';
 import { PlanningOverviewComponent } from './component/planning/planning-overview/planning-overview.component';
@@ -52,15 +53,16 @@ import { AlertService } from './service/alert/alert.service';
     NgbdSortableHeader,
     RecipeEditComponent,
     RecipeTypeComponent,
-    RecipeTagsComponent,
+    RecipeTagsComponent,    
     IngredientsComponent,
     IngredientListEditComponent,
-    MeasureUnitListComponent,
-    MeasureUnitEditComponent,
-    IngredientNameEditComponent,
+    IngredientNameSelectComponent,
     IngredientNameListComponent,
-    MeasureUnitCreateComponent,
     IngredientNameCreateComponent,
+    IngredientNameEditComponent,
+    MeasureUnitListComponent,
+    MeasureUnitSelectComponent,
+    MeasureUnitCreateComponent,    
     PlanningOverviewComponent,
     ShoppingListComponent,
     AlertComponent,

@@ -39,7 +39,6 @@ export class IngredientListEditComponent implements OnInit {
       id: [ingredient.id || ''],
       name: [ingredient.name || ''],
       amount: [ingredient.amount || ''],
-      stock: [ingredient.stock || ''],
       measureUnit: [ingredient.measureUnit || '']
     });
     (this.ingredientsForm.controls.ingredients as FormArray).push(formGroup);

@@ -4,6 +4,7 @@
       <th>Id</th>
       <th>Naam</th>
       <th>Meervoudsnaam</th>
+      <th>Voorraad</th>
       <th>
         <button class="btn btn-primary m-1" routerLink="/ingredient-name-create">Ingredientnaam toevoegen</button>
       </th>
@@ -14,6 +15,7 @@
       <td>{{ingredientName.id}}</td>
       <td>{{ingredientName.name}}</td>
       <td>{{ingredientName.pluralName}}</td>
+      <td>{{ingredientName.stock == true ? 'Ja' : 'Nee'}}</td>
       <td>
         <a (click)="editIngredientName(ingredientName)">
           <img class="mx-3" src="assets/images/edit-icon.png" alt="edit-icon">

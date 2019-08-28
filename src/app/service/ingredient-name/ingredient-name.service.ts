@@ -20,6 +20,10 @@ export class IngredientNameService {
     return this.http.post<any>(this.baseUrl + 'ingredient-name/create', ingredientName);
   }
 
+  updateIngredientName(ingredientName: IngredientName) {
+    return this.http.put<any>(this.baseUrl + 'ingredient-name/update', ingredientName);
+  }
+
   deleteIngredientName(ingredientName: IngredientName) {
     return this.http.delete<any>(this.baseUrl + 'ingredient-name/delete/' + ingredientName.id);
   }
