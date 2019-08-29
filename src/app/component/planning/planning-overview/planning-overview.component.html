@@ -5,26 +5,48 @@
     <table class="table table-sm item-hl">
       <thead>
         <tr>
+          <th></th>
+          <th></th>
           <th>Datum</th>
           <th>Weekdag</th>
           <th>Receptnaam</th>
           <th>Aantal personen</th>
           <th>Op boodschappenlijst</th>
-          <th></th>
+          <th>Gegeten</th>
+          <th>Verwijderen</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let planning of planBoard; let i = index;" [formGroupName]="i">
+          <td>
+            <a  
+              (click)="moveDown(planning)">
+              <img class="mx-0" src="assets/images/arrow-down-icon.png" alt="arrow-down-icon">
+            </a>
+          </td>
+          <td>
+            <a  
+              (click)="moveUp(planning)">
+              <img class="mx-0" src="assets/images/arrow-up-icon.png" alt="arrow-up-icon">
+            </a>
+          </td>
           <td>{{planning.date}}</td>
           <td>{{getDayOfWeek(planning.date)}}</td>
           <td>{{planning.name}}</td>
           <td>{{planning.servings}}</td>
           <td><input type="checkbox" formControlName="onShoppingList" class="form-control" (change)="toggleOnShoppingList(planning)"></td>
           <td>
-              <a  
-                (click)="removePlanning(planning)">
-                <img class="mx-3" src="assets/images/delete-icon.png" alt="delete-icon"></a>
-            </td>
+            <a  
+              (click)="setLastServedDate(planning)">
+              <img class="mx-3" src="assets/images/select-icon.png" alt="select-icon">
+            </a>
+          </td>
+          <td>
+            <a  
+              (click)="removePlanning(planning)">
+              <img class="mx-3" src="assets/images/delete-icon.png" alt="delete-icon">
+            </a>
+          </td>
         </tr>
       </tbody>
     </table>

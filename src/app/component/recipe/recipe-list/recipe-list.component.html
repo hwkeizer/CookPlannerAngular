@@ -25,7 +25,7 @@
           <td>{{recipeTableService.getTagString(recipe.tags)}}</td>
           <td class="no-padding">
             <div *ngIf="!editImage && recipe.image" class="col-md-6">
-              <img [attr.src]="baseUrl + 'image/?name=' + recipe.image"  style=" max-height: 60px; max-width: 60px;">
+              <img [attr.src]="baseUrl + 'image/?name=' + recipe.image"  style=" max-height: 70px; max-width: 70px;">
             </div>
           </td>
           <td>{{recipe.rating}}</td>

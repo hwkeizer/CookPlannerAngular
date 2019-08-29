@@ -17,6 +17,10 @@ export class PlanningService {
     return this.http.get<any>(this.baseUrl + 'planning/list');
   }
 
+  updatePlanning(planning: Planning[]) {
+    return this.http.put<any>(this.baseUrl + 'planning/update', planning);
+  }
+
   addPlanning(recipe: Recipe) {
     return this.http.post<any>(this.baseUrl + 'planning/add', recipe);
   }

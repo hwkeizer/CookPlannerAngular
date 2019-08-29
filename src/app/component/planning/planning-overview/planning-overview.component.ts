@@ -79,6 +79,35 @@ export class PlanningOverviewComponent implements OnInit {
     )
   }
 
+  // Move the planning one up on the planboard
+  moveUp(planning: Planning) {
+    var index = this.planBoard.indexOf(planning);
+    if (index === 0) return; // Already the first element
+    // Switch the dates
+    let oldDate: Date = this.planBoard[index].date;
+    this.planBoard[index].date = this.planBoard[index-1].date;
+    this.planBoard[index-1].date = oldDate;
+    this.planBoard.splice(index - 1, 0, this.planBoard.splice(index, 1)[0]);
+    this.planningToPlanBoard();
+    this.planningService.updatePlanning(this.planBoard).subscribe(data => {});
+  }
+
+  // Move the planning one down on the planboard
+  moveDown(planning: Planning) {
+    var index = this.planBoard.indexOf(planning);
+    if (index === this.planBoard.length - 1) return; // Already the last element
+    let oldDate: Date = this.planBoard[index].date;
+    this.planBoard[index].date = this.planBoard[index+1].date;
+    this.planBoard[index+1].date = oldDate;
+    this.planBoard.splice(index + 1, 0, this.planBoard.splice(index, 1)[0]);
+    this.planningToPlanBoard();
+    this.planningService.updatePlanning(this.planBoard).subscribe(data => {});
+  }
+
+  setLastServedDate(planning: Planning) {
+    alert("Sorry, nog niet geimplementeerd")
+  }
+
   toggleOnShoppingList(planning: Planning) {    
     var index = this.planBoard.indexOf(planning);
     if (index !== -1) {
